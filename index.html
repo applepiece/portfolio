@@ -1,12 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="th" data-lang="th">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ple Chusorn</title>
-<meta name="description" content="Porncheera (Ple) Chusorn, Ph.D. Cell scientist, brand builder and storyteller. I make the invisible impossible to ignore.">
-<meta property="og:title" content="Ple Chusorn · I make the invisible impossible to ignore">
-<meta property="og:description" content="Cell scientist, co-founder of Happlen, lecturer and storyteller from Thailand.">
+<script>
+(function () {
+  var r = document.documentElement, l = null;
+  try { var q = new URLSearchParams(location.search).get('lang'); if (q === 'th' || q === 'en') l = q; } catch (e) {}
+  if (!l) { try { var s = localStorage.getItem('ple-lang'); if (s === 'th' || s === 'en') l = s; } catch (e) {} }
+  if (!l) l = 'th';
+  r.setAttribute('lang', l); r.setAttribute('data-lang', l); window.__pleLang = l;
+  try { var t = localStorage.getItem('ple-theme'); if (t === 'light' || t === 'dark') r.setAttribute('data-theme', t); } catch (e) {}
+})();
+</script>
+<title data-i18n-attr="text" data-th="เปิ้ล Ple Chusorn · นักวิทยาศาสตร์เซลล์และนักเล่าเรื่อง" data-en="Ple Chusorn · Cell scientist and storyteller">เปิ้ล Ple Chusorn · นักวิทยาศาสตร์เซลล์และนักเล่าเรื่อง</title>
+<meta name="description" data-i18n-attr="content" data-th="ดร.เปิ้ล Porncheera Chusorn นักวิทยาศาสตร์เซลล์ คนสร้างแบรนด์ และนักเล่าเรื่อง ฉันทำให้เรื่องที่มองไม่เห็น เป็นเรื่องที่ใครก็มองข้ามไม่ได้" data-en="Porncheera (Ple) Chusorn, Ph.D. Cell scientist, brand builder and storyteller. I make the invisible impossible to ignore." content="ดร.เปิ้ล Porncheera Chusorn นักวิทยาศาสตร์เซลล์ คนสร้างแบรนด์ และนักเล่าเรื่อง ฉันทำให้เรื่องที่มองไม่เห็น เป็นเรื่องที่ใครก็มองข้ามไม่ได้">
+<meta property="og:title" data-i18n-attr="content" data-th="เปิ้ล Ple Chusorn · ทำให้เรื่องที่มองไม่เห็น เป็นเรื่องที่มองข้ามไม่ได้" data-en="Ple Chusorn · I make the invisible impossible to ignore" content="เปิ้ล Ple Chusorn · ทำให้เรื่องที่มองไม่เห็น เป็นเรื่องที่มองข้ามไม่ได้">
+<meta property="og:description" data-i18n-attr="content" data-th="นักวิทยาศาสตร์เซลล์ ผู้ร่วมก่อตั้ง Happlen อาจารย์ และนักเล่าเรื่องจากประเทศไทย" data-en="Cell scientist, co-founder of Happlen, lecturer and storyteller from Thailand." content="นักวิทยาศาสตร์เซลล์ ผู้ร่วมก่อตั้ง Happlen อาจารย์ และนักเล่าเรื่องจากประเทศไทย">
 <meta property="og:image" content="assets/hero-art.jpg">
 <meta name="theme-color" content="#2A0B5C">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236B2FD1'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='36' text-anchor='middle' fill='white'%3EP%3C/text%3E%3C/svg%3E">
@@ -14,21 +24,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700;800&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="main.js" defer></script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main"><span data-l="th">ข้ามไปที่เนื้อหา</span><span data-l="en">Skip to content</span></a>
 
 <header class="nav" id="top">
   <div class="wrap nav-row">
-    <a class="brand" href="#top" aria-label="Ple Chusorn, back to top"><span class="brand-mark">P</span><span>Ple Chusorn</span></a>
-    <nav class="nav-links" aria-label="Sections">
-      <a href="#why">Why</a><a href="#method">Method</a><a href="#proof">Proof</a><a href="#work">Work</a><a href="#path">Path</a>
+    <a class="brand" href="#top" data-i18n-attr="aria-label" data-th="Ple Chusorn กลับขึ้นด้านบน" data-en="Ple Chusorn, back to top" aria-label="Ple Chusorn กลับขึ้นด้านบน"><span class="brand-mark">P</span><span>Ple Chusorn</span></a>
+    <nav class="nav-links" data-i18n-attr="aria-label" data-th="หัวข้อในหน้า" data-en="Sections" aria-label="หัวข้อในหน้า">
+      <a href="#why"><span data-l="th">ทำไม</span><span data-l="en">Why</span></a><a href="#method"><span data-l="th">วิธีคิด</span><span data-l="en">Method</span></a><a href="#proof"><span data-l="th">หลักฐาน</span><span data-l="en">Proof</span></a><a href="#work"><span data-l="th">ผลงาน</span><span data-l="en">Work</span></a><a href="#path"><span data-l="th">เส้นทาง</span><span data-l="en">Path</span></a>
     </nav>
     <div class="nav-actions">
-      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch light or dark theme">
+      <div class="lang-switch" role="group" data-i18n-attr="aria-label" data-th="เลือกภาษา" data-en="Choose language" aria-label="เลือกภาษา">
+        <button type="button" data-set-lang="th" aria-pressed="true" lang="th" aria-label="ภาษาไทย">TH</button><button type="button" data-set-lang="en" aria-pressed="false" lang="en" aria-label="English">EN</button>
+      </div>
+      <button class="theme-btn" id="themeBtn" type="button" data-i18n-attr="aria-label" data-th="สลับโหมดสว่างหรือมืด" data-en="Switch light or dark theme" aria-label="สลับโหมดสว่างหรือมืด">
         <span class="when-light"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 7C10 10.866 13.134 14 17 14C18.9584 14 20.729 13.1957 21.9995 11.8995C22 11.933 22 11.9665 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C12.0335 2 12.067 2 12.1005 2.00049C10.8043 3.27098 10 5.04157 10 7ZM4 12C4 16.4183 7.58172 20 12 20C15.0583 20 17.7158 18.2839 19.062 15.7621C18.3945 15.9187 17.7035 16 17 16C12.0294 16 8 11.9706 8 7C8 6.29648 8.08133 5.60547 8.2379 4.938C5.71611 6.28423 4 8.9417 4 12Z"/></svg></span><span class="when-dark"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"/></svg></span>
       </button>
-      <a class="btn btn-small" href="mailto:porncheera@gmail.com">Say hello</a>
+      <a class="btn btn-small" href="mailto:porncheera@gmail.com"><span data-l="th">ทักมาคุยกัน</span><span data-l="en">Say hello</span></a>
     </div>
   </div>
 </header>
@@ -39,25 +53,99 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="kicker kicker-light"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4.4375C15.3462 4.4375 16.4375 3.34619 16.4375 2H17.5625C17.5625 3.34619 18.6538 4.4375 20 4.4375V5.5625C18.6538 5.5625 17.5625 6.65381 17.5625 8H16.4375C16.4375 6.65381 15.3462 5.5625 14 5.5625V4.4375ZM1 11C4.31371 11 7 8.31371 7 5H9C9 8.31371 11.6863 11 15 11V13C11.6863 13 9 15.6863 9 19H7C7 15.6863 4.31371 13 1 13V11ZM4.87601 12C6.18717 12.7276 7.27243 13.8128 8 15.124 8.72757 13.8128 9.81283 12.7276 11.124 12 9.81283 11.2724 8.72757 10.1872 8 8.87601 7.27243 10.1872 6.18717 11.2724 4.87601 12ZM17.25 14C17.25 15.7949 15.7949 17.25 14 17.25V18.75C15.7949 18.75 17.25 20.2051 17.25 22H18.75C18.75 20.2051 20.2051 18.75 22 18.75V17.25C20.2051 17.25 18.75 15.7949 18.75 14H17.25Z"/></svg> Cell scientist · Brand builder · Storyteller</p>
-      <h1>I make the invisible <span class="hl">impossible to ignore.</span></h1>
-      <p class="hero-th" lang="th">ฉันใช้เวลาเกือบ 20 ปีส่องสิ่งที่ตาเปล่ามองไม่เห็น ทั้งเซลล์มะเร็ง โปรตีนในเซลล์เดียว และแบคทีเรียที่ซ่อนอยู่ในเซลล์ วันนี้ฉันอยากเปลี่ยนสิ่งที่คนมองข้าม ให้เป็นเรื่องที่คนรู้สึกและลงมือทำ</p>
-      <p class="hero-name">Porncheera Chusorn, Ph.D. · <span lang="th">เปิ้ล</span> (Ple)</p>
+      <p class="kicker kicker-light"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4.4375C15.3462 4.4375 16.4375 3.34619 16.4375 2H17.5625C17.5625 3.34619 18.6538 4.4375 20 4.4375V5.5625C18.6538 5.5625 17.5625 6.65381 17.5625 8H16.4375C16.4375 6.65381 15.3462 5.5625 14 5.5625V4.4375ZM1 11C4.31371 11 7 8.31371 7 5H9C9 8.31371 11.6863 11 15 11V13C11.6863 13 9 15.6863 9 19H7C7 15.6863 4.31371 13 1 13V11ZM4.87601 12C6.18717 12.7276 7.27243 13.8128 8 15.124 8.72757 13.8128 9.81283 12.7276 11.124 12 9.81283 11.2724 8.72757 10.1872 8 8.87601 7.27243 10.1872 6.18717 11.2724 4.87601 12ZM17.25 14C17.25 15.7949 15.7949 17.25 14 17.25V18.75C15.7949 18.75 17.25 20.2051 17.25 22H18.75C18.75 20.2051 20.2051 18.75 22 18.75V17.25C20.2051 17.25 18.75 15.7949 18.75 14H17.25Z"/></svg> <span data-l="th">นักวิทยาศาสตร์เซลล์ · คนสร้างแบรนด์ · นักเล่าเรื่อง</span><span data-l="en">Cell scientist · Brand builder · Storyteller</span></p>
+      <h1><span data-l="th">ฉันทำให้เรื่องที่<span class="nw">มองไม่เห็น</span> <span class="hl">เป็นเรื่องที่ใครก็<span class="nw">มองข้ามไม่ได้</span></span></span><span data-l="en">I make the invisible <span class="hl">impossible to ignore.</span></span></h1>
+      <p class="hero-sub"><span data-l="th">ฉันใช้เวลาเกือบ 20 ปีส่องสิ่งที่ตาเปล่า<span class="nw">มองไม่เห็น</span> ทั้งเซลล์มะเร็ง โปรตีนในเซลล์เดียว และแบคทีเรียที่ซ่อนอยู่ในเซลล์ วันนี้ฉันอยากเปลี่ยนสิ่งที่คนมองข้าม ให้เป็นเรื่องที่คนรู้สึกและ<span class="nw">ลงมือทำ</span></span><span data-l="en">For almost 20 years I have looked at what the naked eye cannot see: cancer cells, proteins inside a single cell, and bacteria hiding in cells. Now I want to turn what people overlook into something they feel and act on.</span></p>
+      <p class="hero-name">Porncheera Chusorn, Ph.D. · <span data-l="th">เปิ้ล</span><span data-l="en">Ple</span></p>
       <div class="hero-cta">
-        <a class="btn btn-glow" href="#proof">See the proof <svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.0001 16.1716L18.3641 10.8076L19.7783 12.2218L12.0001 20L4.22192 12.2218L5.63614 10.8076L11.0001 16.1716V4H13.0001V16.1716Z"/></svg></a>
-        <a class="btn btn-ghost" href="#why">Start with why</a>
+        <a class="btn btn-glow" href="#proof"><span data-l="th">ดูหลักฐาน</span><span data-l="en">See the proof</span> <svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M13.0001 16.1716L18.3641 10.8076L19.7783 12.2218L12.0001 20L4.22192 12.2218L5.63614 10.8076L11.0001 16.1716V4H13.0001V16.1716Z"/></svg></a>
+        <a class="btn btn-ghost" href="#why"><span data-l="th">เริ่มที่เหตุผล</span><span data-l="en">Start with why</span></a>
       </div>
     </div>
-    <figure class="hero-art">
-      <img src="assets/hero-art.jpg" width="1100" height="1100" alt="Illustration: a glowing cell under a microscope sends a ribbon of light to a stage microphone and speech bubbles, science turning into a story.">
+    <figure class="hero-woman">
+<svg class="woman" viewBox="0 0 400 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="womanTitle">
+<title id="womanTitle" data-i18n-attr="text" data-th="ภาพประกอบผู้หญิงนักวิทยาศาสตร์ผมฟูยิ้มอยู่ ใส่เสื้อกาวน์และต่างหู ตาของเธอมองตามเคอร์เซอร์" data-en="Illustration of a smiling woman scientist with big fluffy hair, a lab coat and earrings. Her eyes follow your pointer.">ภาพประกอบผู้หญิงนักวิทยาศาสตร์ผมฟูยิ้มอยู่ ใส่เสื้อกาวน์และต่างหู ตาของเธอมองตามเคอร์เซอร์</title>
+
+<defs>
+  <radialGradient id="pleHalo" cx="50%" cy="45%" r="55%">
+    <stop offset="0" stop-color="#E9DBFF"/><stop offset=".6" stop-color="#C6A6FF"/><stop offset="1" stop-color="#8E5BD6" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+<circle cx="200" cy="226" r="200" fill="url(#pleHalo)" opacity=".9"/>
+<g class="woman-cells" fill="none" stroke="#FFC58A" stroke-width="2.5" opacity=".9">
+  <circle cx="44" cy="96" r="12"/><circle cx="44" cy="96" r="4" fill="#FFC58A"/>
+  <circle cx="358" cy="72" r="9"/><circle cx="372" cy="300" r="14"/><circle cx="372" cy="300" r="5" fill="#FF8DC7" stroke="none"/>
+  <path d="M380 196 l4 -10 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 Z" fill="#FFC58A" stroke="none"/>
+  <path d="M18 250 l4 -9 l4 9 l9 4 l-9 4 l-4 9 l-4 -9 l-9 -4 Z" fill="#E3D2FF" stroke="none"/>
+</g>
+
+<g class="w-hair-back"><circle cx="198.2" cy="73.5" r="42.5" fill="#8E5BD6"/><circle cx="226" cy="81.3" r="39.7" fill="#8E5BD6"/><circle cx="254.4" cy="92.5" r="36.4" fill="#8E5BD6"/><circle cx="283.4" cy="106.5" r="36.9" fill="#8E5BD6"/><circle cx="303.7" cy="138.6" r="37.2" fill="#8E5BD6"/><circle cx="316" cy="165.3" r="45.5" fill="#8E5BD6"/><circle cx="326.8" cy="194.6" r="45.8" fill="#8E5BD6"/><circle cx="321.5" cy="232" r="38.9" fill="#8E5BD6"/><circle cx="319.8" cy="256" r="39.1" fill="#8E5BD6"/><circle cx="314.3" cy="285.4" r="41.8" fill="#8E5BD6"/><circle cx="292.6" cy="311.7" r="41.5" fill="#8E5BD6"/><circle cx="260.4" cy="327.1" r="38.1" fill="#8E5BD6"/><circle cx="235.5" cy="342.3" r="39.1" fill="#8E5BD6"/><circle cx="200.9" cy="346.5" r="39" fill="#8E5BD6"/><circle cx="169.3" cy="345.1" r="38.4" fill="#8E5BD6"/><circle cx="135.9" cy="331.8" r="44.8" fill="#8E5BD6"/><circle cx="111.1" cy="310.9" r="45.8" fill="#8E5BD6"/><circle cx="85.1" cy="287.8" r="43.6" fill="#8E5BD6"/><circle cx="73.1" cy="259.8" r="36.4" fill="#8E5BD6"/><circle cx="75.6" cy="231" r="41.7" fill="#8E5BD6"/><circle cx="77.7" cy="193.8" r="43" fill="#8E5BD6"/><circle cx="82.2" cy="164.9" r="40.6" fill="#8E5BD6"/><circle cx="98.9" cy="139.7" r="40.7" fill="#8E5BD6"/><circle cx="117.6" cy="106.4" r="43" fill="#8E5BD6"/><circle cx="142.5" cy="97.4" r="44.2" fill="#8E5BD6"/><circle cx="167.5" cy="79.8" r="42.7" fill="#8E5BD6"/><ellipse cx="200" cy="214" rx="132" ry="140" fill="#2B1145"/><circle cx="198.2" cy="78.5" r="40.5" fill="#2B1145"/><circle cx="225.4" cy="86.2" r="37.7" fill="#2B1145"/><circle cx="253.2" cy="97.2" r="34.4" fill="#2B1145"/><circle cx="281.6" cy="110.9" r="34.9" fill="#2B1145"/><circle cx="301.3" cy="142.3" r="35.2" fill="#2B1145"/><circle cx="313.2" cy="168.5" r="43.5" fill="#2B1145"/><circle cx="323.9" cy="197.1" r="43.8" fill="#2B1145"/><circle cx="318.6" cy="233.5" r="36.9" fill="#2B1145"/><circle cx="317" cy="257" r="37.1" fill="#2B1145"/><circle cx="311.8" cy="285.8" r="39.8" fill="#2B1145"/><circle cx="290.6" cy="311.5" r="39.5" fill="#2B1145"/><circle cx="259" cy="326.5" r="36.1" fill="#2B1145"/><circle cx="234.7" cy="341.4" r="37.1" fill="#2B1145"/><circle cx="200.9" cy="345.5" r="37" fill="#2B1145"/><circle cx="170" cy="344.2" r="36.4" fill="#2B1145"/><circle cx="137.4" cy="331.1" r="42.8" fill="#2B1145"/><circle cx="113.1" cy="310.7" r="43.8" fill="#2B1145"/><circle cx="87.6" cy="288.2" r="41.6" fill="#2B1145"/><circle cx="75.9" cy="260.7" r="34.4" fill="#2B1145"/><circle cx="78.6" cy="232.6" r="39.7" fill="#2B1145"/><circle cx="80.7" cy="196.2" r="41" fill="#2B1145"/><circle cx="85" cy="168" r="38.6" fill="#2B1145"/><circle cx="101.3" cy="143.5" r="38.7" fill="#2B1145"/><circle cx="119.4" cy="110.8" r="41" fill="#2B1145"/><circle cx="143.8" cy="102.1" r="42.2" fill="#2B1145"/><circle cx="168.2" cy="84.7" r="40.7" fill="#2B1145"/><path d="M306.3 231.2A8.5 8.5 0 1 1 323 233.6" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M313.6 262.9A8.4 8.4 0 1 1 329.7 267.2" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M87 302.3A8.2 8.2 0 1 1 101.8 309.2" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M61.9 163.5A10.5 10.5 0 1 1 76.5 178.3" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M289 185A8.5 8.5 0 1 1 305.4 189.1" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M102.1 152.1A8 8 0 1 1 116.7 158.4" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M67 201.7A10 10 0 1 1 86.8 203.5" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M297.3 126A10.6 10.6 0 1 1 312.9 140.2" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M290.8 293.8A8.2 8.2 0 1 1 306.9 295.4" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M140.4 299.5A8 8 0 1 1 156 302.2" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M273.6 89.3A9.4 9.4 0 1 1 290.3 97.6" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M242.3 114.2A8.1 8.1 0 1 1 252.6 126.5" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M101.5 180.5A9.6 9.6 0 1 1 113.4 195.3" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M244.6 69.7A10.6 10.6 0 1 1 260 83.9" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M319.9 153.9A10.9 10.9 0 1 1 340.1 161.5" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M92.5 108.7A10.5 10.5 0 1 1 111.2 118" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M193.1 85.8A8.5 8.5 0 1 1 205.7 97.1" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M254.5 282.1A10.9 10.9 0 1 1 272.3 294.5" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M65.3 270.9A10.5 10.5 0 1 1 85.6 275.6" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M74 135.4A9.3 9.3 0 1 1 86.3 149.1" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M98 249.2A8 8 0 1 1 109.8 259.9" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M54.3 227.9A10.1 10.1 0 1 1 68.1 242.4" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M138.5 116.8A10.6 10.6 0 1 1 151.8 133.2" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M325.5 202.6A8.5 8.5 0 1 1 340.9 209.4" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M190.3 309.9A10.2 10.2 0 1 1 207.8 320" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M138.9 70.8A9 9 0 1 1 151.8 83.2" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M97.6 215.1A10.4 10.4 0 1 1 113.4 228.3" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M225.7 311A9 9 0 1 1 243.5 313.2" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M110.5 286.2A9.8 9.8 0 1 1 129.9 287.2" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M268.4 148A9.2 9.2 0 1 1 281.8 160.5" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M282.4 250.8A9.2 9.2 0 1 1 298.2 259.9" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M269.4 310.1A9.2 9.2 0 1 1 283.5 321.7" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M223.3 90.9A8.3 8.3 0 1 1 235.3 102.1" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/><path d="M167.1 108.2A8.2 8.2 0 1 1 183.3 110.1" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"/></g>
+<g class="w-body">
+<path d="M176 262 L176 340 L224 340 L224 262 Z" fill="#EDB792"/>
+<path d="M176 280 Q200 300 224 280 L224 262 L176 262 Z" fill="#D99A74"/>
+<g transform="translate(0 -18)"><path d="M52 492 C58 400 92 366 150 352 L176 336 Q200 352 224 336 L250 352 C308 366 342 400 348 492 Z" fill="#6B2FD1"/>
+<path d="M170 330 L200 382 L230 330 Z" fill="#EDB792"/><path d="M174 337 L200 380 L226 337" fill="none" stroke="#4B1D8F" stroke-width="3" stroke-linejoin="round"/>
+<path d="M52 492 C58 402 90 368 146 354 L174 338 L188 396 L160 492 Z" fill="#FBF8FF"/>
+<path d="M348 492 C342 402 310 368 254 354 L226 338 L212 396 L240 492 Z" fill="#FBF8FF"/>
+<path d="M174 338 L152 350 L170 384 L162 392 L188 410 Z" fill="#FBF8FF" stroke="#DCCEF5" stroke-width="2" stroke-linejoin="round"/>
+<path d="M226 338 L248 350 L230 384 L238 392 L212 410 Z" fill="#FBF8FF" stroke="#DCCEF5" stroke-width="2" stroke-linejoin="round"/>
+<path d="M146 354 L174 338 L188 410 L160 492" fill="none" stroke="#DCCEF5" stroke-width="2"/>
+<path d="M254 354 L226 338 L212 410 L240 492" fill="none" stroke="#DCCEF5" stroke-width="2"/>
+<rect x="262" y="408" width="44" height="34" rx="6" fill="none" stroke="#DCCEF5" stroke-width="2"/>
+<rect x="272" y="396" width="5" height="22" rx="2.5" fill="#6B2FD1"/>
+<rect x="282" y="400" width="5" height="18" rx="2.5" fill="#F2A65A"/>
+</g>
+</g>
+<g class="w-head">
+<ellipse cx="136" cy="222" rx="11" ry="16" fill="#EDB792"/>
+<ellipse cx="264" cy="222" rx="11" ry="16" fill="#EDB792"/>
+<ellipse cx="137" cy="223" rx="5" ry="9" fill="#D99A74"/>
+<ellipse cx="263" cy="223" rx="5" ry="9" fill="#D99A74"/>
+<g class="earring"><circle cx="137" cy="246" r="3" fill="#F2A65A"/><circle cx="137" cy="256" r="6" fill="none" stroke="#F2A65A" stroke-width="3"/></g>
+<g class="earring"><circle cx="263" cy="246" r="3" fill="#F2A65A"/><circle cx="263" cy="256" r="6" fill="none" stroke="#F2A65A" stroke-width="3"/></g>
+<path d="M200 128 C246 128 266 164 266 208 C266 254 236 290 200 290 C164 290 134 254 134 208 C134 164 154 128 200 128 Z" fill="#EDB792"/>
+<ellipse cx="200" cy="176" rx="40" ry="22" fill="#F6CDAE" opacity=".55"/>
+<g class="w-face">
+<ellipse cx="166" cy="240" rx="11" ry="6.5" fill="#F07FA0" opacity=".38"/>
+<ellipse cx="234" cy="240" rx="11" ry="6.5" fill="#F07FA0" opacity=".38"/>
+<path class="brow" d="M160 192 Q174 183 189 189" stroke="#2B1145" stroke-width="4.2" stroke-linecap="round" fill="none"/>
+<path class="brow" d="M211 189 Q226 183 240 192" stroke="#2B1145" stroke-width="4.2" stroke-linecap="round" fill="none"/>
+<g class="eye" data-cx="176" data-cy="211">
+  <clipPath id="eyeclip0"><ellipse cx="176" cy="211" rx="13" ry="9.5"/></clipPath>
+  <ellipse cx="176" cy="211" rx="13" ry="9.5" fill="#FFFFFF"/>
+  <g clip-path="url(#eyeclip0)"><g class="pupil">
+    <circle cx="176" cy="211.5" r="7.6" fill="#4A2266"/>
+    <circle cx="176" cy="211.5" r="3.8" fill="#160624"/>
+    <circle cx="178.6" cy="208.8" r="2.1" fill="#FFFFFF"/>
+  </g></g>
+  <path d="M162 212 Q176 197 190 212" stroke="#160624" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+  <path d="M163 208 q-5 -3 -7 -7" stroke="#160624" stroke-width="3" stroke-linecap="round" fill="none"/>
+</g>
+<g class="eye" data-cx="224" data-cy="211">
+  <clipPath id="eyeclip2"><ellipse cx="224" cy="211" rx="13" ry="9.5"/></clipPath>
+  <ellipse cx="224" cy="211" rx="13" ry="9.5" fill="#FFFFFF"/>
+  <g clip-path="url(#eyeclip2)"><g class="pupil">
+    <circle cx="224" cy="211.5" r="7.6" fill="#4A2266"/>
+    <circle cx="224" cy="211.5" r="3.8" fill="#160624"/>
+    <circle cx="226.6" cy="208.8" r="2.1" fill="#FFFFFF"/>
+  </g></g>
+  <path d="M210 212 Q224 197 238 212" stroke="#160624" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+  <path d="M237 208 q5 -3 7 -7" stroke="#160624" stroke-width="3" stroke-linecap="round" fill="none"/>
+</g>
+<path d="M201 220 Q204 234 197 239 Q201 242 206 240" stroke="#D99A74" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M181 252 Q200 274 219 252 Q200 259 181 252 Z" fill="#B8326A"/>
+<path d="M188 257 Q200 268 212 257 Q200 261 188 257 Z" fill="#D85A8A"/>
+</g></g>
+<g class="w-hair-front"><circle cx="138" cy="176" r="24" fill="#8E5BD6" opacity=".55"/><circle cx="150" cy="154" r="28" fill="#8E5BD6" opacity=".55"/><circle cx="170" cy="136" r="30" fill="#8E5BD6" opacity=".55"/><circle cx="196" cy="126" r="32" fill="#8E5BD6" opacity=".55"/><circle cx="222" cy="130" r="31" fill="#8E5BD6" opacity=".55"/><circle cx="246" cy="144" r="29" fill="#8E5BD6" opacity=".55"/><circle cx="262" cy="166" r="25" fill="#8E5BD6" opacity=".55"/><circle cx="266" cy="188" r="19" fill="#8E5BD6" opacity=".55"/><circle cx="134" cy="196" r="18" fill="#8E5BD6" opacity=".55"/><circle cx="184" cy="148" r="20" fill="#8E5BD6" opacity=".55"/><circle cx="212" cy="148" r="20" fill="#8E5BD6" opacity=".55"/><circle cx="160" cy="164" r="17" fill="#8E5BD6" opacity=".55"/><circle cx="240" cy="164" r="17" fill="#8E5BD6" opacity=".55"/><circle cx="138" cy="178" r="22" fill="#2B1145"/><circle cx="150" cy="156" r="26" fill="#2B1145"/><circle cx="170" cy="138" r="28" fill="#2B1145"/><circle cx="196" cy="128" r="30" fill="#2B1145"/><circle cx="222" cy="132" r="29" fill="#2B1145"/><circle cx="246" cy="146" r="27" fill="#2B1145"/><circle cx="262" cy="168" r="23" fill="#2B1145"/><circle cx="266" cy="190" r="17" fill="#2B1145"/><circle cx="134" cy="198" r="16" fill="#2B1145"/><circle cx="184" cy="150" r="18" fill="#2B1145"/><circle cx="212" cy="150" r="18" fill="#2B1145"/><circle cx="160" cy="166" r="15" fill="#2B1145"/><circle cx="240" cy="166" r="15" fill="#2B1145"/><path d="M132.7 168.4A11 11 0 0 1 148.4 181.5" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M142.5 145.4A13 13 0 0 1 162.7 158.7" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M159.6 128.6A14 14 0 0 1 184 137.9" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M184.2 118.8A15 15 0 0 1 211 126.8" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M215 119.3A14.5 14.5 0 0 1 235.7 136.7" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M240.7 133.6A13.5 13.5 0 0 1 258.3 151.6" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M258.6 157A11.5 11.5 0 0 1 271.9 173.8" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M261.7 182.7A8.5 8.5 0 0 1 274.1 192.5" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M127.7 193.1A8 8 0 0 1 142 197.4" stroke="#4E2580" stroke-width="3" stroke-linecap="round" fill="none"/></g>
+</svg>
     </figure>
   </div>
   <div class="wrap">
-    <ul class="stats" aria-label="Numbers at a glance">
-      <li><b>10</b><span>peer-reviewed papers, 2012 to 2025</span></li>
-      <li><b>8</b><span>journals, from Hepatology to Journal of Cell Science</span></li>
-      <li><b>2</b><span>countries of lab work: Thailand and Singapore</span></li>
-      <li><b>1</b><span>brand co-founded: Happlen</span></li>
+    <ul class="stats" data-i18n-attr="aria-label" data-th="ตัวเลขสำคัญ" data-en="Numbers at a glance" aria-label="ตัวเลขสำคัญ">
+      <li><b>10</b><span data-l="th">งานวิจัยตีพิมพ์ที่ผ่านการรีวิว ปี 2012 ถึง 2025</span><span data-l="en">peer-reviewed papers, 2012 to 2025</span></li>
+      <li><b>8</b><span data-l="th">วารสาร ตั้งแต่ Hepatology ถึง Journal of Cell Science</span><span data-l="en">journals, from Hepatology to Journal of Cell Science</span></li>
+      <li><b>2</b><span data-l="th">ประเทศที่เคยทำงานแล็บ คือไทยและสิงคโปร์</span><span data-l="en">countries of lab work: Thailand and Singapore</span></li>
+      <li><b>1</b><span data-l="th">แบรนด์ที่ร่วมก่อตั้ง คือ Happlen</span><span data-l="en">brand co-founded: Happlen</span></li>
     </ul>
   </div>
 </section>
@@ -65,30 +153,27 @@
 <!-- WHY -->
 <section class="section" id="why">
   <div class="wrap">
-    <p class="kicker">01 · Start with why</p>
-    <h2 class="statement">Knowledge only matters when it <mark>reaches someone's life.</mark></h2>
-    <p class="lead" lang="th">ความรู้จะมีค่าก็ต่อเมื่อไปถึงชีวิตคน งานทุกชิ้นของฉันเริ่มจากคำถามเดียว คนที่ได้รับเรื่องนี้จะรู้สึกอย่างไร และจะทำอะไรต่อ</p>
+    <p class="kicker"><span data-l="th">01 · เริ่มที่เหตุผล</span><span data-l="en">01 · Start with why</span></p>
+    <h2 class="statement"><span data-l="th">ความรู้จะมีค่า ก็ต่อเมื่อ<mark class="nw">ไปถึงชีวิตคน</mark></span><span data-l="en">Knowledge only matters when it <mark>reaches someone's life.</mark></span></h2>
+    <p class="lead"><span data-l="th">งานทุกชิ้นของฉันเริ่มจากคำถามเดียว คนที่ได้รับเรื่องนี้จะรู้สึกยังไง แล้วจะทำอะไรต่อ</span><span data-l="en">Every piece of my work starts with one question: how will the person who receives it feel, and what will they do next?</span></p>
     <div class="circle-grid">
       <article class="ring ring-why">
-        <span class="ring-tag">Why</span>
-        <h3>Help people see what matters, and feel it.</h3>
-        <p lang="th">ช่วยให้คนเห็นสิ่งสำคัญ และรู้สึกกับมันจริง ๆ</p>
+        <span class="ring-tag"><span data-l="th">ทำไม</span><span data-l="en">Why</span></span>
+        <h3><span data-l="th">ช่วยให้คนเห็นสิ่งสำคัญ และรู้สึกกับมันจริง ๆ</span><span data-l="en">Help people see what matters, and feel it.</span></h3>
       </article>
       <article class="ring ring-how">
-        <span class="ring-tag">How</span>
-        <h3>Look closer than anyone, then say it simply and beautifully.</h3>
-        <p lang="th">มองให้ลึกกว่าใคร แล้วเล่าให้ง่ายและสวย</p>
+        <span class="ring-tag"><span data-l="th">ทำยังไง</span><span data-l="en">How</span></span>
+        <h3><span data-l="th">มองให้ลึกกว่าใคร แล้วเล่าให้ง่ายและสวย</span><span data-l="en">Look closer than anyone, then say it simply and beautifully.</span></h3>
       </article>
       <article class="ring ring-what">
-        <span class="ring-tag">What</span>
-        <h3>Research, teaching, brand and creative direction.</h3>
-        <p lang="th">งานวิจัย งานสอน งานแบรนด์ และการกำกับงานครีเอทีฟ</p>
+        <span class="ring-tag"><span data-l="th">ทำอะไร</span><span data-l="en">What</span></span>
+        <h3><span data-l="th">งานวิจัย งานสอน งานแบรนด์ และการกำกับงานครีเอทีฟ</span><span data-l="en">Research, teaching, brand and creative direction.</span></h3>
       </article>
     </div>
     <blockquote class="pull">
       <svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.58341 17.3211C3.55316 16.2274 3 15 3 13.0103C3 9.51086 5.45651 6.37366 9.03059 4.82318L9.92328 6.20079C6.58804 8.00539 5.93618 10.346 5.67564 11.822C6.21263 11.5443 6.91558 11.4466 7.60471 11.5105C9.40908 11.6778 10.8312 13.159 10.8312 15C10.8312 16.933 9.26416 18.5 7.33116 18.5C6.2581 18.5 5.23196 18.0095 4.58341 17.3211ZM14.5834 17.3211C13.5532 16.2274 13 15 13 13.0103C13 9.51086 15.4565 6.37366 19.0306 4.82318L19.9233 6.20079C16.588 8.00539 15.9362 10.346 15.6756 11.822C16.2126 11.5443 16.9156 11.4466 17.6047 11.5105C19.4091 11.6778 20.8312 13.159 20.8312 15C20.8312 16.933 19.2642 18.5 17.3312 18.5C16.2581 18.5 15.232 18.0095 14.5834 17.3211Z"/></svg>
-      <p>Translate it into the community for well-being.</p>
-      <cite>My own goal, written on my first portfolio in 2023</cite>
+      <p><span data-l="th">ส่งต่อความรู้สู่ชุมชน เพื่อสุขภาวะที่ดีของผู้คน</span><span data-l="en">Translate it into the community for well-being.</span></p>
+      <cite><span data-l="th">เป้าหมายของฉันเอง ที่เขียนไว้ในพอร์ตโฟลิโอเล่มแรกเมื่อปี 2023</span><span data-l="en">My own goal, written on my first portfolio in 2023</span></cite>
     </blockquote>
   </div>
 </section>
@@ -96,34 +181,31 @@
 <!-- METHOD -->
 <section class="section section-tint" id="method">
   <div class="wrap">
-    <p class="kicker">02 · The method</p>
-    <h2>3 moves I use on <mark>everything</mark>, from a cell to a campaign.</h2>
+    <p class="kicker"><span data-l="th">02 · วิธีคิด</span><span data-l="en">02 · The method</span></p>
+    <h2><span data-l="th">3 ท่าที่ฉันใช้กับ<mark>ทุกงาน</mark> ตั้งแต่เซลล์ไปจนถึง<span class="nw">แคมเปญ</span></span><span data-l="en">3 moves I use on <mark>everything</mark>, from a cell to a campaign.</span></h2>
     <ol class="method">
       <li>
         <span class="num">01</span>
         <div>
-          <h3><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3ZM12.0003 19C16.2359 19 19.8603 16.052 20.7777 12C19.8603 7.94803 16.2359 5 12.0003 5C7.7646 5 4.14022 7.94803 3.22278 12C4.14022 16.052 7.7646 19 12.0003 19ZM12.0003 16.5C9.51498 16.5 7.50026 14.4853 7.50026 12C7.50026 9.51472 9.51498 7.5 12.0003 7.5C14.4855 7.5 16.5003 9.51472 16.5003 12C16.5003 14.4853 14.4855 16.5 12.0003 16.5ZM12.0003 14.5C13.381 14.5 14.5003 13.3807 14.5003 12C14.5003 10.6193 13.381 9.5 12.0003 9.5C10.6196 9.5 9.50026 10.6193 9.50026 12C9.50026 13.3807 10.6196 14.5 12.0003 14.5Z"/></svg> Look closer</h3>
-          <p class="th" lang="th">ส่องให้ลึก</p>
-          <p>Insight starts where most people stop looking. I design imaging screens that read single cells and single bacteria, plate after plate.</p>
-          <p class="proof">Proof: the Columbus high-content imaging pipeline for Orientia infection work at SiSP, Siriraj.</p>
+          <h3><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3ZM12.0003 19C16.2359 19 19.8603 16.052 20.7777 12C19.8603 7.94803 16.2359 5 12.0003 5C7.7646 5 4.14022 7.94803 3.22278 12C4.14022 16.052 7.7646 19 12.0003 19ZM12.0003 16.5C9.51498 16.5 7.50026 14.4853 7.50026 12C7.50026 9.51472 9.51498 7.5 12.0003 7.5C14.4855 7.5 16.5003 9.51472 16.5003 12C16.5003 14.4853 14.4855 16.5 12.0003 16.5ZM12.0003 14.5C13.381 14.5 14.5003 13.3807 14.5003 12C14.5003 10.6193 13.381 9.5 12.0003 9.5C10.6196 9.5 9.50026 10.6193 9.50026 12C9.50026 13.3807 10.6196 14.5 12.0003 14.5Z"/></svg> <span data-l="th">ส่องให้ลึก</span><span data-l="en">Look closer</span></h3>
+          <p><span data-l="th">อินไซต์เริ่มตรงที่คนส่วนใหญ่เลิกมอง ฉันออกแบบงานคัดกรองด้วยภาพ ที่อ่านเซลล์ได้ทีละเซลล์และแบคทีเรียได้ทีละตัว เพลตแล้วเพลตเล่า</span><span data-l="en">Insight starts where most people stop looking. I design imaging screens that read single cells and single bacteria, plate after plate.</span></p>
+          <p class="proof"><span data-l="th">หลักฐาน: ไปป์ไลน์ภาพแบบ high-content บน Columbus สำหรับงานติดเชื้อ Orientia ที่ SiSP ศิริราช</span><span data-l="en">Proof: the Columbus high-content imaging pipeline for Orientia infection work at SiSP, Siriraj.</span></p>
         </div>
       </li>
       <li>
         <span class="num">02</span>
         <div>
-          <h3><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.97308 18H14.0269C14.1589 16.7984 14.7721 15.8065 15.7676 14.7226C15.8797 14.6006 16.5988 13.8564 16.6841 13.7501C17.5318 12.6931 18 11.385 18 10C18 6.68629 15.3137 4 12 4C8.68629 4 6 6.68629 6 10C6 11.3843 6.46774 12.6917 7.31462 13.7484C7.40004 13.855 8.12081 14.6012 8.23154 14.7218C9.22766 15.8064 9.84103 16.7984 9.97308 18ZM14 20H10V21H14V20ZM5.75395 14.9992C4.65645 13.6297 4 11.8915 4 10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10C20 11.8925 19.3428 13.6315 18.2443 15.0014C17.624 15.7748 16 17 16 18.5V21C16 22.1046 15.1046 23 14 23H10C8.89543 23 8 22.1046 8 21V18.5C8 17 6.37458 15.7736 5.75395 14.9992ZM13 10.0048H15.5L11 16.0048V12.0048H8.5L13 6V10.0048Z"/></svg> Make it make sense</h3>
-          <p class="th" lang="th">ทำเรื่องยากให้เข้าใจง่าย</p>
-          <p>If a high-school student cannot follow it, I am not finished. I teach undergraduates, train graduate students and host lab open houses for high-school students.</p>
-          <p class="proof">Proof: 4 undergraduate courses taught · SiSP Lab Open House host in 2017, 2018 and 2019.</p>
+          <h3><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M9.97308 18H14.0269C14.1589 16.7984 14.7721 15.8065 15.7676 14.7226C15.8797 14.6006 16.5988 13.8564 16.6841 13.7501C17.5318 12.6931 18 11.385 18 10C18 6.68629 15.3137 4 12 4C8.68629 4 6 6.68629 6 10C6 11.3843 6.46774 12.6917 7.31462 13.7484C7.40004 13.855 8.12081 14.6012 8.23154 14.7218C9.22766 15.8064 9.84103 16.7984 9.97308 18ZM14 20H10V21H14V20ZM5.75395 14.9992C4.65645 13.6297 4 11.8915 4 10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10C20 11.8925 19.3428 13.6315 18.2443 15.0014C17.624 15.7748 16 17 16 18.5V21C16 22.1046 15.1046 23 14 23H10C8.89543 23 8 22.1046 8 21V18.5C8 17 6.37458 15.7736 5.75395 14.9992ZM13 10.0048H15.5L11 16.0048V12.0048H8.5L13 6V10.0048Z"/></svg> <span data-l="th">ทำเรื่องยากให้เข้าใจง่าย</span><span data-l="en">Make it make sense</span></h3>
+          <p><span data-l="th">ถ้านักเรียน ม.ปลาย ยังตามไม่ทัน แปลว่าฉันยังทำไม่เสร็จ ฉันสอนนักศึกษาปริญญาตรี ฝึกนักศึกษาบัณฑิตศึกษา และจัดงานเปิดบ้านแล็บให้นักเรียน ม.ปลาย</span><span data-l="en">If a high-school student cannot follow it, I am not finished. I teach undergraduates, train graduate students and host lab open houses for high-school students.</span></p>
+          <p class="proof"><span data-l="th">หลักฐาน: สอนวิชาระดับปริญญาตรี 4 วิชา · จัดงาน SiSP Lab Open House ปี 2017, 2018 และ 2019</span><span data-l="en">Proof: 4 undergraduate courses taught · SiSP Lab Open House host in 2017, 2018 and 2019.</span></p>
         </div>
       </li>
       <li>
         <span class="num">03</span>
         <div>
-          <h3><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17C9 17 16 18 19 21H20C20.5523 21 21 20.5523 21 20V13.937C21.8626 13.715 22.5 12.9319 22.5 12C22.5 11.0681 21.8626 10.285 21 10.063V4C21 3.44772 20.5523 3 20 3H19C16 6 9 7 9 7H5C3.89543 7 3 7.89543 3 9V15C3 16.1046 3.89543 17 5 17H6L7 22H9V17ZM11 8.6612C11.6833 8.5146 12.5275 8.31193 13.4393 8.04373C15.1175 7.55014 17.25 6.77262 19 5.57458V18.4254C17.25 17.2274 15.1175 16.4499 13.4393 15.9563C12.5275 15.6881 11.6833 15.4854 11 15.3388V8.6612ZM5 9H9V15H5V9Z"/></svg> Make them feel it</h3>
-          <p class="th" lang="th">ทำให้คนรู้สึก</p>
-          <p>People act on what moves them, not on what is correct. That is why I lead brand and creative at Happlen, and why I sing on stage.</p>
-          <p class="proof">Proof: the voice of happlen.com, "your worth is already beautiful."</p>
+          <h3><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17C9 17 16 18 19 21H20C20.5523 21 21 20.5523 21 20V13.937C21.8626 13.715 22.5 12.9319 22.5 12C22.5 11.0681 21.8626 10.285 21 10.063V4C21 3.44772 20.5523 3 20 3H19C16 6 9 7 9 7H5C3.89543 7 3 7.89543 3 9V15C3 16.1046 3.89543 17 5 17H6L7 22H9V17ZM11 8.6612C11.6833 8.5146 12.5275 8.31193 13.4393 8.04373C15.1175 7.55014 17.25 6.77262 19 5.57458V18.4254C17.25 17.2274 15.1175 16.4499 13.4393 15.9563C12.5275 15.6881 11.6833 15.4854 11 15.3388V8.6612ZM5 9H9V15H5V9Z"/></svg> <span data-l="th">ทำให้คนรู้สึก</span><span data-l="en">Make them feel it</span></h3>
+          <p><span data-l="th">คนลงมือทำเพราะเรื่องนั้นแตะใจ ไม่ใช่เพราะมันถูกต้อง นี่คือเหตุผลที่ฉันดูแลงานแบรนด์และครีเอทีฟที่ Happlen และเหตุผลที่ฉันขึ้นร้องเพลงบนเวที</span><span data-l="en">People act on what moves them, not on what is correct. That is why I lead brand and creative at Happlen, and why I sing on stage.</span></p>
+          <p class="proof"><span data-l="th">หลักฐาน: น้ำเสียงของ happlen.com ที่บอกว่า คุณค่าของคุณงดงามอยู่แล้ว</span><span data-l="en">Proof: the voice of happlen.com, "your worth is already beautiful."</span></p>
         </div>
       </li>
     </ol>
@@ -133,75 +215,75 @@
 <!-- PROOF -->
 <section class="section" id="proof">
   <div class="wrap">
-    <p class="kicker">03 · Proof, not promises</p>
-    <h2>Peer review is the toughest <mark>audience</mark> I know.</h2>
+    <p class="kicker"><span data-l="th">03 · หลักฐาน ไม่ใช่คำสัญญา</span><span data-l="en">03 · Proof, not promises</span></p>
+    <h2><span data-l="th">กรรมการรีวิวงานวิจัย คือ<mark>คนดู</mark>ที่<span class="nw">โหดที่สุด</span>ที่ฉันเคยเจอ</span><span data-l="en">Peer review is the toughest <mark>audience</mark> I know.</span></h2>
     <div class="proof-grid">
       <article class="big-card">
-        <b>Co-first author</b>
-        <p>A chemically tunable FOXM1 sensor · <i>Journal of Cell Science</i>, 2025</p>
+        <b><span data-l="th">ผู้เขียนหลักร่วม</span><span data-l="en">Co-first author</span></b>
+        <p><span data-l="th">เซนเซอร์ FOXM1 ที่ปรับระดับได้ด้วยสารเคมี</span><span data-l="en">A chemically tunable FOXM1 sensor</span> · <i>Journal of Cell Science</i>, 2025</p>
       </article>
       <article class="big-card">
-        <b>First author</b>
-        <p>microRNA-21 in liver-fluke bile duct cancer · <i>Tumor Biology</i>, 2013</p>
+        <b><span data-l="th">ผู้เขียนหลัก</span><span data-l="en">First author</span></b>
+        <p><span data-l="th">microRNA-21 ในมะเร็งท่อน้ำดีจากพยาธิใบไม้ตับ</span><span data-l="en">microRNA-21 in liver-fluke bile duct cancer</span> · <i>Tumor Biology</i>, 2013</p>
       </article>
       <article class="big-card">
-        <b>2 AI papers</b>
-        <p>Deep learning that counts bacteria in RNAi screen images · <i>Intelligent Systems with Applications</i>, 2023 and 2024</p>
+        <b><span data-l="th">งานวิจัย AI 2 เรื่อง</span><span data-l="en">2 AI papers</span></b>
+        <p><span data-l="th">ดีปเลิร์นนิงที่นับแบคทีเรียในภาพจากการคัดกรองด้วย RNAi</span><span data-l="en">Deep learning that counts bacteria in RNAi screen images</span> · <i>Intelligent Systems with Applications</i>, <span data-l="th">2023 และ 2024</span><span data-l="en">2023 and 2024</span></p>
       </article>
     </div>
-    <p class="chips-label">Published in</p>
+    <p class="chips-label"><span data-l="th">ตีพิมพ์ใน</span><span data-l="en">Published in</span></p>
     <ul class="chips">
       <li>Hepatology</li><li>Journal of Cell Science</li><li>Cell Proliferation</li><li>Biomedicine &amp; Pharmacotherapy</li><li>Intelligent Systems with Applications</li><li>Journal of Hepato-Biliary-Pancreatic Sciences</li><li>Tumor Biology</li><li>Asian Pacific Journal of Cancer Prevention</li>
     </ul>
-    <p class="chips-label">Trained and worked at</p>
+    <p class="chips-label"><span data-l="th">เคยเรียนและทำงานที่</span><span data-l="en">Trained and worked at</span></p>
     <ul class="chips chips-solid">
-      <li>Faculty of Medicine Siriraj Hospital, Mahidol University</li><li>Khon Kaen University</li><li>National Cancer Centre Singapore</li><li>Roi Et Rajabhat University</li>
+      <li><span data-l="th">คณะแพทยศาสตร์ศิริราชพยาบาล มหาวิทยาลัยมหิดล</span><span data-l="en">Faculty of Medicine Siriraj Hospital, Mahidol University</span></li><li><span data-l="th">มหาวิทยาลัยขอนแก่น</span><span data-l="en">Khon Kaen University</span></li><li>National Cancer Centre Singapore</li><li><span data-l="th">มหาวิทยาลัยราชภัฏร้อยเอ็ด</span><span data-l="en">Roi Et Rajabhat University</span></li>
     </ul>
-    <p class="fine">Full record: <a href="https://orcid.org/0000-0002-1401-9760">ORCID 0000-0002-1401-9760</a> · <a href="https://scholar.google.com/citations?user=QUeXgUQAAAAJ">Google Scholar</a></p>
+    <p class="fine"><span data-l="th">ดูประวัติงานวิจัยทั้งหมด:</span><span data-l="en">Full record:</span> <a href="https://orcid.org/0000-0002-1401-9760">ORCID 0000-0002-1401-9760</a> · <a href="https://scholar.google.com/citations?user=QUeXgUQAAAAJ">Google Scholar</a></p>
   </div>
 </section>
 
 <!-- WORK -->
 <section class="section section-tint" id="work">
   <div class="wrap">
-    <p class="kicker">04 · Selected work</p>
-    <h2>Same habit, <mark>different stages.</mark></h2>
+    <p class="kicker"><span data-l="th">04 · ผลงานที่เลือกมา</span><span data-l="en">04 · Selected work</span></p>
+    <h2><span data-l="th">นิสัยเดิม <mark>บนเวทีที่ต่างกัน</mark></span><span data-l="en">Same habit, <mark>different stages.</mark></span></h2>
     <div class="cards">
       <article class="card c1">
-        <div class="tags"><span>Research</span><span>Imaging</span><span>AI</span></div>
-        <h3>Catching a hidden bacterium in the act</h3>
-        <p>A genome-wide siRNA imaging screen in human cells to find which host genes <i>Orientia tsutsugamushi</i>, the cause of scrub typhus, needs to get in. I own the Columbus pipeline that turns the images into answers.</p>
-        <p class="meta">SiSP · Siriraj, Mahidol University</p>
+        <div class="tags"><span data-l="th">วิจัย</span><span data-l="th">ภาพเซลล์</span><span data-l="en">Research</span><span data-l="en">Imaging</span><span>AI</span></div>
+        <h3><span data-l="th">จับแบคทีเรียที่ซ่อนตัว คาหนังคาเขา</span><span data-l="en">Catching a hidden bacterium in the act</span></h3>
+        <p><span data-l="th">งานคัดกรองด้วยภาพแบบ siRNA ทั้งจีโนมในเซลล์มนุษย์ เพื่อหาว่า <i>Orientia tsutsugamushi</i> เชื้อที่ทำให้เกิดโรคไข้รากสาดใหญ่ ต้องใช้ยีนตัวไหนของเซลล์เราในการเข้าเซลล์ ฉันดูแลไปป์ไลน์ Columbus ที่เปลี่ยนภาพให้เป็นคำตอบ</span><span data-l="en">A genome-wide siRNA imaging screen in human cells to find which host genes <i>Orientia tsutsugamushi</i>, the cause of scrub typhus, needs to get in. I own the Columbus pipeline that turns the images into answers.</span></p>
+        <p class="meta"><span data-l="th">SiSP · ศิริราช มหาวิทยาลัยมหิดล</span><span data-l="en">SiSP · Siriraj, Mahidol University</span></p>
       </article>
       <article class="card c2">
-        <div class="tags"><span>Research</span><span>Cancer</span></div>
-        <h3>A dimmer switch for a cancer protein</h3>
-        <p>A sensor that lets a drug dial the level of FOXM1 up or down, so we can watch what it does to the cell cycle, one cell at a time.</p>
-        <p class="meta">Co-first author · J Cell Sci 2025 · Cell Prolif 2025</p>
+        <div class="tags"><span data-l="th">วิจัย</span><span data-l="th">มะเร็ง</span><span data-l="en">Research</span><span data-l="en">Cancer</span></div>
+        <h3><span data-l="th">สวิตช์หรี่ไฟสำหรับโปรตีนมะเร็ง</span><span data-l="en">A dimmer switch for a cancer protein</span></h3>
+        <p><span data-l="th">เซนเซอร์ที่ให้ยาปรับระดับ FOXM1 ขึ้นหรือลงได้ เราจึงเห็นว่ามันทำอะไรกับวัฏจักรเซลล์ ทีละเซลล์</span><span data-l="en">A sensor that lets a drug dial the level of FOXM1 up or down, so we can watch what it does to the cell cycle, one cell at a time.</span></p>
+        <p class="meta"><span data-l="th">ผู้เขียนหลักร่วม</span><span data-l="en">Co-first author</span> · J Cell Sci 2025 · Cell Prolif 2025</p>
       </article>
       <article class="card c3">
-        <div class="tags"><span>Brand</span><span>Creative</span><span>Startup</span></div>
-        <h3>Happlen: a brand built on one belief</h3>
-        <p>A Thai AI lifestyle startup I co-run with Heng. Its promise: your worth is already beautiful. I set how it looks, sounds and feels.</p>
-        <p class="meta">Co-founder · happlen.com</p>
+        <div class="tags"><span data-l="th">แบรนด์</span><span data-l="th">ครีเอทีฟ</span><span data-l="th">สตาร์ตอัป</span><span data-l="en">Brand</span><span data-l="en">Creative</span><span data-l="en">Startup</span></div>
+        <h3><span data-l="th">Happlen แบรนด์ที่สร้างจากความเชื่อเดียว</span><span data-l="en">Happlen: a brand built on one belief</span></h3>
+        <p><span data-l="th">สตาร์ตอัปไลฟ์สไตล์ AI ของไทย ที่ฉันบริหารร่วมกับเฮง คำสัญญาของแบรนด์คือ คุณค่าของคุณงดงามอยู่แล้ว ฉันกำหนดว่าแบรนด์จะดู ฟัง และให้ความรู้สึกแบบไหน</span><span data-l="en">A Thai AI lifestyle startup I co-run with Heng. Its promise: your worth is already beautiful. I set how it looks, sounds and feels.</span></p>
+        <p class="meta"><span data-l="th">ผู้ร่วมก่อตั้ง</span><span data-l="en">Co-founder</span> · happlen.com</p>
       </article>
       <article class="card c4">
-        <div class="tags"><span>Lab</span><span>Teaching</span></div>
-        <h3>RE:CELL Lab: predict in silico, prove in cells</h3>
-        <p>My own laboratory, where undergraduates learn research by doing real projects in cell image analysis, computational prediction and cell biology.</p>
-        <p class="meta">Principal investigator · recell-lab.org</p>
+        <div class="tags"><span data-l="th">แล็บ</span><span data-l="th">การสอน</span><span data-l="en">Lab</span><span data-l="en">Teaching</span></div>
+        <h3><span data-l="th">RE:CELL Lab ทำนายในคอมพิวเตอร์ พิสูจน์ในเซลล์</span><span data-l="en">RE:CELL Lab: predict in silico, prove in cells</span></h3>
+        <p><span data-l="th">แล็บของฉันเอง ที่นักศึกษาปริญญาตรีเรียนรู้การวิจัยจากโปรเจกต์จริง ทั้งการวิเคราะห์ภาพเซลล์ การทำนายด้วยคอมพิวเตอร์ และชีววิทยาของเซลล์</span><span data-l="en">My own laboratory, where undergraduates learn research by doing real projects in cell image analysis, computational prediction and cell biology.</span></p>
+        <p class="meta"><span data-l="th">หัวหน้าแล็บ</span><span data-l="en">Principal investigator</span> · recell-lab.org</p>
       </article>
       <article class="card c5">
-        <div class="tags"><span>Web</span><span>Creative direction</span></div>
-        <h3>A company website, redesigned</h3>
-        <p>Moodboard, tone of voice and final sign-off for a four-page site of an industrial equipment dealer. I set the brand wording the whole site follows.</p>
-        <p class="meta">2026 · Malaysia</p>
+        <div class="tags"><span data-l="th">เว็บ</span><span data-l="th">กำกับครีเอทีฟ</span><span data-l="en">Web</span><span data-l="en">Creative direction</span></div>
+        <h3><span data-l="th">รีดีไซน์เว็บไซต์บริษัท</span><span data-l="en">A company website, redesigned</span></h3>
+        <p><span data-l="th">ทำมู้ดบอร์ด วางน้ำเสียงของแบรนด์ และอนุมัติงานรอบสุดท้าย ให้เว็บไซต์ 4 หน้าของบริษัทตัวแทนจำหน่ายอุปกรณ์อุตสาหกรรม ถ้อยคำของแบรนด์ที่ทั้งเว็บใช้ตาม ฉันเป็นคนวาง</span><span data-l="en">Moodboard, tone of voice and final sign-off for a four-page site of an industrial equipment dealer. I set the brand wording the whole site follows.</span></p>
+        <p class="meta">2026 · <span data-l="th">มาเลเซีย</span><span data-l="en">Malaysia</span></p>
       </article>
       <article class="card c6">
-        <div class="tags"><span>Community</span><span>Events</span></div>
-        <h3>Cancer research people could read</h3>
-        <p>Annual reports that turned bile duct cancer research into news and knowledge, plus fundraising events and workshops across the Northeast of Thailand.</p>
-        <p class="meta">CASCAP · Khon Kaen University</p>
+        <div class="tags"><span data-l="th">ชุมชน</span><span data-l="th">อีเวนต์</span><span data-l="en">Community</span><span data-l="en">Events</span></div>
+        <h3><span data-l="th">งานวิจัยมะเร็งที่คนทั่วไปอ่านได้</span><span data-l="en">Cancer research people could read</span></h3>
+        <p><span data-l="th">รายงานประจำปีที่เปลี่ยนงานวิจัยมะเร็งท่อน้ำดีให้เป็นข่าวและความรู้ พร้อมงานระดมทุนและเวิร์กช็อปทั่วภาคอีสาน</span><span data-l="en">Annual reports that turned bile duct cancer research into news and knowledge, plus fundraising events and workshops across the Northeast of Thailand.</span></p>
+        <p class="meta">CASCAP · <span data-l="th">มหาวิทยาลัยขอนแก่น</span><span data-l="en">Khon Kaen University</span></p>
       </article>
     </div>
   </div>
@@ -211,15 +293,15 @@
 <section class="section" id="stage">
   <div class="wrap stage">
     <div>
-      <p class="kicker">05 · Off the bench</p>
-      <h2>The stage taught me what the lab could not: <mark>timing.</mark></h2>
-      <p class="lead" lang="th">นอกห้องแล็บ ฉันร้องเพลง สอนร้องเพลง และจัดงานอีเวนต์ ทุกอย่างสอนเรื่องเดียวกัน คนจะฟังเมื่อเรื่องนั้นมาถูกจังหวะ</p>
+      <p class="kicker"><span data-l="th">05 · นอกห้องแล็บ</span><span data-l="en">05 · Off the bench</span></p>
+      <h2><span data-l="th">เวทีสอนสิ่งที่แล็บ<span class="nw">สอนไม่ได้</span> นั่นคือ<mark>จังหวะ</mark></span><span data-l="en">The stage taught me what the lab could not: <mark>timing.</mark></span></h2>
+      <p class="lead"><span data-l="th">นอกห้องแล็บ ฉันร้องเพลง สอนร้องเพลง และจัดงานอีเวนต์ ทุกอย่างสอนเรื่องเดียวกัน คนจะฟังเมื่อเรื่องนั้นมาถูกจังหวะ</span><span data-l="en">Outside the lab I sing, coach singing and run events. They all teach the same thing: people listen when a story arrives at the right moment.</span></p>
     </div>
     <ul class="stage-list">
-      <li><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.9998 3C10.3429 3 8.99976 4.34315 8.99976 6V10C8.99976 11.6569 10.3429 13 11.9998 13C13.6566 13 14.9998 11.6569 14.9998 10V6C14.9998 4.34315 13.6566 3 11.9998 3ZM11.9998 1C14.7612 1 16.9998 3.23858 16.9998 6V10C16.9998 12.7614 14.7612 15 11.9998 15C9.23833 15 6.99976 12.7614 6.99976 10V6C6.99976 3.23858 9.23833 1 11.9998 1ZM3.05469 11H5.07065C5.55588 14.3923 8.47329 17 11.9998 17C15.5262 17 18.4436 14.3923 18.9289 11H20.9448C20.4837 15.1716 17.1714 18.4839 12.9998 18.9451V23H10.9998V18.9451C6.82814 18.4839 3.51584 15.1716 3.05469 11Z"/></svg><span><b>Singer and vocal coach</b> on stage, not only in the shower</span></li>
-      <li><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 11C14.7614 11 17 13.2386 17 16V22H15V16C15 14.4023 13.7511 13.0963 12.1763 13.0051L12 13C10.4023 13 9.09634 14.2489 9.00509 15.8237L9 16V22H7V16C7 13.2386 9.23858 11 12 11ZM5.5 14C5.77885 14 6.05009 14.0326 6.3101 14.0942C6.14202 14.594 6.03873 15.122 6.00896 15.6693L6 16L6.0007 16.0856C5.88757 16.0456 5.76821 16.0187 5.64446 16.0069L5.5 16C4.7203 16 4.07955 16.5949 4.00687 17.3555L4 17.5V22H2V17.5C2 15.567 3.567 14 5.5 14ZM18.5 14C20.433 14 22 15.567 22 17.5V22H20V17.5C20 16.7203 19.4051 16.0796 18.6445 16.0069L18.5 16C18.3248 16 18.1566 16.03 18.0003 16.0852L18 16C18 15.3343 17.8916 14.694 17.6915 14.0956C17.9499 14.0326 18.2211 14 18.5 14ZM5.5 8C6.88071 8 8 9.11929 8 10.5C8 11.8807 6.88071 13 5.5 13C4.11929 13 3 11.8807 3 10.5C3 9.11929 4.11929 8 5.5 8ZM18.5 8C19.8807 8 21 9.11929 21 10.5C21 11.8807 19.8807 13 18.5 13C17.1193 13 16 11.8807 16 10.5C16 9.11929 17.1193 8 18.5 8ZM5.5 10C5.22386 10 5 10.2239 5 10.5C5 10.7761 5.22386 11 5.5 11C5.77614 11 6 10.7761 6 10.5C6 10.2239 5.77614 10 5.5 10ZM18.5 10C18.2239 10 18 10.2239 18 10.5C18 10.7761 18.2239 11 18.5 11C18.7761 11 19 10.7761 19 10.5C19 10.2239 18.7761 10 18.5 10ZM12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2ZM12 4C10.8954 4 10 4.89543 10 6C10 7.10457 10.8954 8 12 8C13.1046 8 14 7.10457 14 6C14 4.89543 13.1046 4 12 4Z"/></svg><span><b>Event organiser</b> for fundraisers, workshops and lab open houses</span></li>
-      <li><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.3333L0 9L12 2L24 9V17.5H22V10.1667L20 11.3333V18.0113L19.7774 18.2864C17.9457 20.5499 15.1418 22 12 22C8.85817 22 6.05429 20.5499 4.22263 18.2864L4 18.0113V11.3333ZM6 12.5V17.2917C7.46721 18.954 9.61112 20 12 20C14.3889 20 16.5328 18.954 18 17.2917V12.5L12 16L6 12.5ZM3.96927 9L12 13.6846L20.0307 9L12 4.31541L3.96927 9Z"/></svg><span><b>Trainer</b> in gene editing, high-content imaging and image analysis</span></li>
-      <li><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4.4375C15.3462 4.4375 16.4375 3.34619 16.4375 2H17.5625C17.5625 3.34619 18.6538 4.4375 20 4.4375V5.5625C18.6538 5.5625 17.5625 6.65381 17.5625 8H16.4375C16.4375 6.65381 15.3462 5.5625 14 5.5625V4.4375ZM1 11C4.31371 11 7 8.31371 7 5H9C9 8.31371 11.6863 11 15 11V13C11.6863 13 9 15.6863 9 19H7C7 15.6863 4.31371 13 1 13V11ZM4.87601 12C6.18717 12.7276 7.27243 13.8128 8 15.124 8.72757 13.8128 9.81283 12.7276 11.124 12 9.81283 11.2724 8.72757 10.1872 8 8.87601 7.27243 10.1872 6.18717 11.2724 4.87601 12ZM17.25 14C17.25 15.7949 15.7949 17.25 14 17.25V18.75C15.7949 18.75 17.25 20.2051 17.25 22H18.75C18.75 20.2051 20.2051 18.75 22 18.75V17.25C20.2051 17.25 18.75 15.7949 18.75 14H17.25Z"/></svg><span><b>Runner, basketball and badminton player</b>, and a cook who experiments</span></li>
+      <li><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.9998 3C10.3429 3 8.99976 4.34315 8.99976 6V10C8.99976 11.6569 10.3429 13 11.9998 13C13.6566 13 14.9998 11.6569 14.9998 10V6C14.9998 4.34315 13.6566 3 11.9998 3ZM11.9998 1C14.7612 1 16.9998 3.23858 16.9998 6V10C16.9998 12.7614 14.7612 15 11.9998 15C9.23833 15 6.99976 12.7614 6.99976 10V6C6.99976 3.23858 9.23833 1 11.9998 1ZM3.05469 11H5.07065C5.55588 14.3923 8.47329 17 11.9998 17C15.5262 17 18.4436 14.3923 18.9289 11H20.9448C20.4837 15.1716 17.1714 18.4839 12.9998 18.9451V23H10.9998V18.9451C6.82814 18.4839 3.51584 15.1716 3.05469 11Z"/></svg><span data-l="th"><b>นักร้องและครูสอนร้องเพลง</b> ร้องบนเวทีจริง ไม่ใช่แค่ในห้องน้ำ</span><span data-l="en"><b>Singer and vocal coach</b> on stage, not only in the shower</span></li>
+      <li><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 11C14.7614 11 17 13.2386 17 16V22H15V16C15 14.4023 13.7511 13.0963 12.1763 13.0051L12 13C10.4023 13 9.09634 14.2489 9.00509 15.8237L9 16V22H7V16C7 13.2386 9.23858 11 12 11ZM5.5 14C5.77885 14 6.05009 14.0326 6.3101 14.0942C6.14202 14.594 6.03873 15.122 6.00896 15.6693L6 16L6.0007 16.0856C5.88757 16.0456 5.76821 16.0187 5.64446 16.0069L5.5 16C4.7203 16 4.07955 16.5949 4.00687 17.3555L4 17.5V22H2V17.5C2 15.567 3.567 14 5.5 14ZM18.5 14C20.433 14 22 15.567 22 17.5V22H20V17.5C20 16.7203 19.4051 16.0796 18.6445 16.0069L18.5 16C18.3248 16 18.1566 16.03 18.0003 16.0852L18 16C18 15.3343 17.8916 14.694 17.6915 14.0956C17.9499 14.0326 18.2211 14 18.5 14ZM5.5 8C6.88071 8 8 9.11929 8 10.5C8 11.8807 6.88071 13 5.5 13C4.11929 13 3 11.8807 3 10.5C3 9.11929 4.11929 8 5.5 8ZM18.5 8C19.8807 8 21 9.11929 21 10.5C21 11.8807 19.8807 13 18.5 13C17.1193 13 16 11.8807 16 10.5C16 9.11929 17.1193 8 18.5 8ZM5.5 10C5.22386 10 5 10.2239 5 10.5C5 10.7761 5.22386 11 5.5 11C5.77614 11 6 10.7761 6 10.5C6 10.2239 5.77614 10 5.5 10ZM18.5 10C18.2239 10 18 10.2239 18 10.5C18 10.7761 18.2239 11 18.5 11C18.7761 11 19 10.7761 19 10.5C19 10.2239 18.7761 10 18.5 10ZM12 2C14.2091 2 16 3.79086 16 6C16 8.20914 14.2091 10 12 10C9.79086 10 8 8.20914 8 6C8 3.79086 9.79086 2 12 2ZM12 4C10.8954 4 10 4.89543 10 6C10 7.10457 10.8954 8 12 8C13.1046 8 14 7.10457 14 6C14 4.89543 13.1046 4 12 4Z"/></svg><span data-l="th"><b>คนจัดอีเวนต์</b> งานระดมทุน เวิร์กช็อป และงานเปิดบ้านแล็บ</span><span data-l="en"><b>Event organiser</b> for fundraisers, workshops and lab open houses</span></li>
+      <li><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.3333L0 9L12 2L24 9V17.5H22V10.1667L20 11.3333V18.0113L19.7774 18.2864C17.9457 20.5499 15.1418 22 12 22C8.85817 22 6.05429 20.5499 4.22263 18.2864L4 18.0113V11.3333ZM6 12.5V17.2917C7.46721 18.954 9.61112 20 12 20C14.3889 20 16.5328 18.954 18 17.2917V12.5L12 16L6 12.5ZM3.96927 9L12 13.6846L20.0307 9L12 4.31541L3.96927 9Z"/></svg><span data-l="th"><b>เทรนเนอร์</b> ด้านการตัดต่อยีน การถ่ายภาพเซลล์แบบ high-content และการวิเคราะห์ภาพ</span><span data-l="en"><b>Trainer</b> in gene editing, high-content imaging and image analysis</span></li>
+      <li><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4.4375C15.3462 4.4375 16.4375 3.34619 16.4375 2H17.5625C17.5625 3.34619 18.6538 4.4375 20 4.4375V5.5625C18.6538 5.5625 17.5625 6.65381 17.5625 8H16.4375C16.4375 6.65381 15.3462 5.5625 14 5.5625V4.4375ZM1 11C4.31371 11 7 8.31371 7 5H9C9 8.31371 11.6863 11 15 11V13C11.6863 13 9 15.6863 9 19H7C7 15.6863 4.31371 13 1 13V11ZM4.87601 12C6.18717 12.7276 7.27243 13.8128 8 15.124 8.72757 13.8128 9.81283 12.7276 11.124 12 9.81283 11.2724 8.72757 10.1872 8 8.87601 7.27243 10.1872 6.18717 11.2724 4.87601 12ZM17.25 14C17.25 15.7949 15.7949 17.25 14 17.25V18.75C15.7949 18.75 17.25 20.2051 17.25 22H18.75C18.75 20.2051 20.2051 18.75 22 18.75V17.25C20.2051 17.25 18.75 15.7949 18.75 14H17.25Z"/></svg><span data-l="th"><b>นักวิ่ง นักบาสเกตบอล และนักแบดมินตัน</b> แถมเป็นคนทำอาหารที่ชอบลองของใหม่</span><span data-l="en"><b>Runner, basketball and badminton player</b>, and a cook who experiments</span></li>
     </ul>
   </div>
 </section>
@@ -227,16 +309,16 @@
 <!-- PATH -->
 <section class="section section-tint" id="path">
   <div class="wrap">
-    <p class="kicker">06 · The path</p>
-    <h2>From one cell to a <mark>whole audience.</mark></h2>
+    <p class="kicker"><span data-l="th">06 · เส้นทาง</span><span data-l="en">06 · The path</span></p>
+    <h2><span data-l="th">จากเซลล์เดียว สู่<mark>คนดูทั้งห้อง</mark></span><span data-l="en">From one cell to a <mark>whole audience.</mark></span></h2>
     <ol class="timeline">
-      <li><span class="yr">2004</span><div><b>B.Sc. Biology</b>, Khon Kaen University · second-class honours</div></li>
-      <li><span class="yr">2008</span><div><b>Ph.D. Medical Biochemistry</b>, Khon Kaen University</div></li>
-      <li><span class="yr">2012</span><div><b>Graduate research fellow</b>, National Cancer Centre Singapore</div></li>
-      <li><span class="yr">2014</span><div><b>Researcher</b>, CASCAP, Faculty of Medicine, Khon Kaen University</div></li>
-      <li><span class="yr">2016</span><div><b>Postdoctoral researcher</b>, Siriraj Initiative in Systems Pharmacology (SiSP), Mahidol University</div></li>
-      <li><span class="yr">2022</span><div><b>Lecturer and lab head</b>, Medical Science Programme, Roi Et Rajabhat University</div></li>
-      <li><span class="yr">2026</span><div><b>Co-founder</b>, Happlen, brand and creative</div></li>
+      <li><span class="yr">2004</span><div data-l="th"><b>วท.บ. ชีววิทยา</b> มหาวิทยาลัยขอนแก่น · เกียรตินิยมอันดับ 2</div><div data-l="en"><b>B.Sc. Biology</b>, Khon Kaen University · second-class honours</div></li>
+      <li><span class="yr">2008</span><div data-l="th"><b>ปร.ด. ชีวเคมีทางการแพทย์</b> มหาวิทยาลัยขอนแก่น</div><div data-l="en"><b>Ph.D. Medical Biochemistry</b>, Khon Kaen University</div></li>
+      <li><span class="yr">2012</span><div data-l="th"><b>นักวิจัยระดับบัณฑิตศึกษา</b> National Cancer Centre Singapore</div><div data-l="en"><b>Graduate research fellow</b>, National Cancer Centre Singapore</div></li>
+      <li><span class="yr">2014</span><div data-l="th"><b>นักวิจัย</b> CASCAP คณะแพทยศาสตร์ มหาวิทยาลัยขอนแก่น</div><div data-l="en"><b>Researcher</b>, CASCAP, Faculty of Medicine, Khon Kaen University</div></li>
+      <li><span class="yr">2016</span><div data-l="th"><b>นักวิจัยหลังปริญญาเอก</b> Siriraj Initiative in Systems Pharmacology (SiSP) มหาวิทยาลัยมหิดล</div><div data-l="en"><b>Postdoctoral researcher</b>, Siriraj Initiative in Systems Pharmacology (SiSP), Mahidol University</div></li>
+      <li><span class="yr">2022</span><div data-l="th"><b>อาจารย์และหัวหน้าแล็บ</b> หลักสูตรวิทยาศาสตร์การแพทย์ มหาวิทยาลัยราชภัฏร้อยเอ็ด</div><div data-l="en"><b>Lecturer and lab head</b>, Medical Science Programme, Roi Et Rajabhat University</div></li>
+      <li><span class="yr">2026</span><div data-l="th"><b>ผู้ร่วมก่อตั้ง</b> Happlen ดูแลแบรนด์และครีเอทีฟ</div><div data-l="en"><b>Co-founder</b>, Happlen, brand and creative</div></li>
     </ol>
   </div>
 </section>
@@ -244,8 +326,8 @@
 <!-- CTA -->
 <section class="cta">
   <div class="wrap cta-inner">
-    <h2>Got something people <span class="hl">should care about?</span></h2>
-    <p lang="th">ถ้าคุณมีเรื่องสำคัญที่คนยังมองข้าม มาคุยกัน</p>
+    <h2><span data-l="th">มีเรื่องที่คน<span class="hl">ควรใส่ใจ</span>ไหม</span><span data-l="en">Got something people <span class="hl">should care about?</span></span></h2>
+    <p><span data-l="th">ถ้าคุณมีเรื่องสำคัญที่คนยังมองข้าม มาคุยกัน</span><span data-l="en">If you have something important that people still overlook, let's talk.</span></p>
     <div class="hero-cta">
       <a class="btn btn-glow" href="mailto:porncheera@gmail.com"><svg class="ri" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM20 7.23792L12.0718 14.338L4 7.21594V19H20V7.23792ZM4.51146 5L12.0619 11.662L19.501 5H4.51146Z"/></svg> porncheera@gmail.com</a>
     </div>
@@ -262,22 +344,8 @@
 <footer class="foot">
   <div class="wrap foot-row">
     <span>© 2026 Porncheera Chusorn</span>
-    <span>Icons: Remixicon · Art made with an image model from my brief</span>
+    <span><span data-l="th">ไอคอน: Remixicon · ภาพประกอบวาดด้วยโค้ด SVG</span><span data-l="en">Icons: Remixicon · Illustration drawn in SVG code</span></span>
   </div>
 </footer>
-
-<script>
-(function () {
-  var root = document.documentElement, key = 'ple-theme';
-  try { var saved = localStorage.getItem(key); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
-  document.getElementById('themeBtn').addEventListener('click', function () {
-    var cur = root.getAttribute('data-theme');
-    if (!cur) cur = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    var next = cur === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
-    try { localStorage.setItem(key, next); } catch (e) {}
-  });
-})();
-</script>
 </body>
 </html>
