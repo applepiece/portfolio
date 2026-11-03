@@ -209,6 +209,7 @@ html[data-lang="th"] [data-l="en"], html[data-lang="en"] [data-l="th"] { display
 .hero-lead { margin-top: 26px; color: var(--ink-soft); font-size: 18px; }
 .hero-name { margin: 20px 0 30px; font-size: 14px; font-weight: 500; color: var(--ink-soft); }
 .hero-portrait { width: 100%; max-width: 460px; justify-self: center; perspective: 900px; pointer-events: none; }
+.look-card { pointer-events: auto; cursor: pointer; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
 .look-card {
   position: relative;
   isolation: isolate;
@@ -222,10 +223,10 @@ html[data-lang="th"] [data-l="en"], html[data-lang="en"] [data-l="th"] { display
   will-change: transform;
 }
 .look-card::after { content: ""; position: absolute; z-index: 10000; inset: 0; border-radius: inherit; box-shadow: inset 0 2px 0 rgba(255, 255, 255, .6), inset 0 -3px 8px rgba(107, 63, 142, .06); pointer-events: none; }
-.look { position: absolute; inset: 0; display: block; opacity: 0; transition: opacity .14s linear; }
+.look { position: absolute; inset: 0; display: block; opacity: 0; will-change: opacity; }
 .look img { width: 100%; height: 100%; object-fit: cover; }
 .look.is-on { opacity: 1; }
-.look[data-look="blink"] { transition: none; }
+.look[data-look^="expr-"] { transition: opacity .2s ease; }
 
 /* Clay slabs carry a tiny, embedded fingerprint-like grain below the copy. */
 .section { position: relative; isolation: isolate; overflow: hidden; padding: 104px 0 116px; }
