@@ -144,9 +144,9 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
 .stage-list svg { width: 28px; height: 28px; fill: var(--primary); margin-top: 2px; }
 
 .timeline { list-style: none; padding: 0; margin: 44px 0 0; position: relative; }
-.timeline::before { content: ""; position: absolute; left: 70px; top: 6px; bottom: 6px; width: 3px; background: linear-gradient(var(--primary), transparent); border-radius: 3px; }
+.timeline::before { content: ""; position: absolute; left: 85px; top: 6px; bottom: 6px; width: 3px; background: linear-gradient(var(--primary), transparent); border-radius: 3px; }
 .timeline li { display: grid; grid-template-columns: 70px 1fr; gap: 32px; padding: 12px 0; position: relative; }
-.timeline li::after { content: ""; position: absolute; left: 64px; top: 22px; width: 15px; height: 15px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 5px var(--bg-tint); }
+.timeline li::after { content: ""; position: absolute; left: 78px; top: 22px; width: 15px; height: 15px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 5px var(--bg-tint); }
 .yr { font-family: var(--display); font-weight: 700; font-size: 20px; color: var(--primary); }
 
 .cta { background: radial-gradient(120% 120% at 15% 0%, #6B2FD1 0%, #3A1670 50%, #1A0B33 100%); color: #fff; padding: 96px 0; text-align: center; }
@@ -177,9 +177,10 @@ mark { background: linear-gradient(transparent 55%, var(--hl) 55%); color: inher
   .method h3 { font-size: 23px; }
   .card { min-height: 0; }
   .btn-small { display: none; }
-  .timeline::before { left: 54px; }
-  .timeline li { grid-template-columns: 54px 1fr; gap: 26px; }
-  .timeline li::after { left: 48px; }
+  .timeline::before { left: 61px; }
+  .timeline li { grid-template-columns: 48px 1fr; gap: 28px; }
+  .timeline li::after { left: 55px; }
+  .yr { font-size: 16px; }
   .pull { padding: 22px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
