@@ -48,84 +48,99 @@
     applyLang(lang); store('ple-lang', lang); syncUrl(lang);
   });
 
-  /* ---------- the face that follows the pointer ---------- */
-  var svg = document.querySelector('.woman');
-  if (!svg || !window.requestAnimationFrame) return;
-  var head = svg.querySelector('.w-head'), face = svg.querySelector('.w-face');
-  var hairB = svg.querySelector('.w-hair-back'), hairF = svg.querySelector('.w-hair-front');
-  var bodyG = svg.querySelector('.w-body');
-  var pupils = svg.querySelectorAll('.pupil'), eyes = svg.querySelectorAll('.eye'), brows = svg.querySelectorAll('.brow');
-  var PX = 200, PY = 300; /* neck pivot in SVG units */
+  /* ---------- the face that follows the pointer ----------
+     Ten pre-rendered frames (3x3 look directions + a blink) are stacked in .look-card.
+     The pointer angle around her face picks a frame; frames cross-fade by opacity and the
+     card gets a small lerped translate and tilt. Only opacity and transform change per frame. */
+  var card = document.querySelector('.look-card');
+  if (!card || !window.requestAnimationFrame) return;
+  var looks = {}, all = card.querySelectorAll('.look');
+  for (var k = 0; k < all.length; k++) looks[all[k].getAttribute('data-look')] = all[k];
+  var SECTORS = ['r', 'dr', 'd', 'dl', 'l', 'ul', 'u', 'ur']; /* 0 deg = right, clockwise because screen y points down */
+  var DEAD_IN = 120, DEAD_OUT = 136, HYST = 7; /* px around the face where she looks straight at you; degrees of hysteresis */
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var noHover = window.matchMedia('(hover: none)');
 
-  var target = { x: 0, y: 0 }, pointer = null, lastInput = 0;
-  var eyeS = { x: 0, y: 0 }, headS = { x: 0, y: 0 };
-  function spring(k, d) { return { x: 0, y: 0, vx: 0, vy: 0, k: k, d: d }; }
-  var backS = spring(0.045, 0.82), frontS = spring(0.07, 0.76);
-  var raf = 0, visible = true, nextBlink = 0, blinkStart = -1;
+  var pointer = null, lastInput = 0, cur = 'c', swapAt = 0, z = 2;
+  var tilt = { x: 0, y: 0 }, tiltT = { x: 0, y: 0 };
+  var raf = 0, visible = true, nextBlink = 0, blinkUntil = 0;
+
+  /* preload and decode every frame up front so a swap never shows an empty card */
+  for (var p in looks) {
+    var im = looks[p].querySelector('img');
+    if (im && im.decode) im.decode().catch(function () {});
+  }
+  for (var q in looks) looks[q].style.opacity = q === 'c' ? '1' : '0';
+  looks.c.style.zIndex = '1';
 
   function clamp(v) { return v < -1 ? -1 : v > 1 ? 1 : v; }
   function lerp(a, b, t) { return a + (b - a) * t; }
-  function n(v) { return Math.round(v * 100) / 100; }
-  function step(s, tx, ty) {
-    s.vx = (s.vx + (tx - s.x) * s.k) * s.d; s.vy = (s.vy + (ty - s.y) * s.k) * s.d;
-    s.x += s.vx; s.y += s.vy;
+  function n(v) { return Math.round(v * 1000) / 1000; }
+
+  function pick(dx, dy) {
+    var dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist < (cur === 'c' ? DEAD_OUT : DEAD_IN)) return 'c';
+    var ang = Math.atan2(dy, dx) * 180 / Math.PI; /* -180..180 */
+    var idx = ((Math.round(ang / 45) % 8) + 8) % 8;
+    var ci = SECTORS.indexOf(cur);
+    if (ci >= 0 && ci !== idx) { /* stay on the current frame until the pointer is clearly past the boundary */
+      var diff = Math.abs(((ang - ci * 45) % 360 + 540) % 360 - 180);
+      if (diff < 22.5 + HYST) return cur;
+    }
+    return SECTORS[idx];
   }
-  function pose(g, x, y, rot) {
-    g.setAttribute('transform', 'translate(' + n(x) + ' ' + n(y) + ') rotate(' + n(rot) + ' ' + PX + ' ' + PY + ')');
+  function show(name) {
+    if (name === cur) return;
+    var el = looks[name];
+    z += 1; el.style.zIndex = String(z); el.style.opacity = '1';
+    cur = name; swapAt = performance.now();
   }
-  function reset() {
-    [head, face, hairB, hairF, bodyG].forEach(function (g) { if (g) g.removeAttribute('transform'); });
-    [].forEach.call(pupils, function (g) { g.removeAttribute('transform'); });
-    [].forEach.call(eyes, function (g) { g.removeAttribute('transform'); });
-    [].forEach.call(brows, function (g) { g.removeAttribute('transform'); });
+  function settle(now) { /* once the new frame is fully in, hide the ones underneath */
+    if (!swapAt || now - swapAt < 170) return;
+    for (var nm in looks) if (nm !== cur && nm !== 'blink' && looks[nm].style.opacity !== '0') looks[nm].style.opacity = '0';
+    swapAt = 0;
+    if (z > 5000) { z = 2; looks[cur].style.zIndex = '2'; }
   }
-  function scheduleBlink(now) { nextBlink = now + 2400 + Math.random() * 3600; }
+  function scheduleBlink(now) { nextBlink = now + 2600 + Math.random() * 3800; }
+  function resetStatic() {
+    for (var nm in looks) { looks[nm].style.opacity = nm === 'c' ? '1' : '0'; looks[nm].style.zIndex = nm === 'c' ? '1' : ''; }
+    cur = 'c'; swapAt = 0; tilt.x = tilt.y = 0; card.style.transform = '';
+  }
 
   function frame(now) {
     raf = 0;
     if (reduce.matches || !visible) return;
-    /* read phase: one layout read per frame, before any write */
-    if (pointer) {
-      var r = svg.getBoundingClientRect();
-      var cx = r.left + r.width * 0.5, cy = r.top + r.height * 0.44;
-      target.x = clamp((pointer.x - cx) / (window.innerWidth * 0.42));
-      target.y = clamp((pointer.y - cy) / (window.innerHeight * 0.42));
-    }
-    if (noHover.matches && now - lastInput > 4000) { /* gentle look-around on touch screens */
-      var t = now / 1000;
-      target.x = Math.sin(t * 0.55) * 0.65; target.y = Math.sin(t * 0.37 + 1) * 0.35;
-    }
-    eyeS.x = lerp(eyeS.x, target.x, 0.2); eyeS.y = lerp(eyeS.y, target.y, 0.2);
-    headS.x = lerp(headS.x, target.x, 0.09); headS.y = lerp(headS.y, target.y, 0.09);
-    step(backS, headS.x, headS.y); step(frontS, headS.x, headS.y);
+    /* read phase: one layout read per frame */
+    var r = card.getBoundingClientRect();
+    var fx = r.left + r.width * 0.5, fy = r.top + r.height * 0.38; /* her face, between the eyes */
+    var px = null, py = null;
+    if (noHover.matches && now - lastInput > 4000) { /* touch screens: slow idle look-around after the last tap */
+      var t = now / 1000, R = Math.max(220, r.width);
+      px = fx + Math.sin(t * 0.42) * R; py = fy + Math.sin(t * 0.29 + 1.2) * R * 0.7;
+    } else if (pointer) { px = pointer.x; py = pointer.y; }
 
-    /* write phase: transforms only */
-    var rot = headS.x * 6 - headS.y * headS.x * 1.5;
-    pose(head, headS.x * 5, headS.y * 4, rot);
-    face.setAttribute('transform', 'translate(' + n(eyeS.x * 6) + ' ' + n(eyeS.y * 5) + ')');
-    var px = n(eyeS.x * 4.6), py = n(eyeS.y * 3.4);
-    for (var i = 0; i < pupils.length; i++) pupils[i].setAttribute('transform', 'translate(' + px + ' ' + py + ')');
-    var lift = n(Math.min(0, eyeS.y) * 3);
-    for (var b = 0; b < brows.length; b++) brows[b].setAttribute('transform', 'translate(0 ' + lift + ')');
-    pose(hairB, backS.x * 3.5, backS.y * 3, backS.x * 6 - backS.y * backS.x * 1.5);
-    pose(hairF, frontS.x * 6.5, frontS.y * 5, frontS.x * 6 - frontS.y * frontS.x * 1.5);
-    bodyG.setAttribute('transform', 'translate(' + n(headS.x * 1.5) + ' 0)');
+    if (px === null) { show('c'); tiltT.x = 0; tiltT.y = 0; }
+    else {
+      var dx = px - fx, dy = py - fy;
+      show(pick(dx, dy));
+      tiltT.x = clamp(dx / (window.innerWidth * 0.45)); tiltT.y = clamp(dy / (window.innerHeight * 0.45));
+    }
+    settle(now);
 
-    /* idle blink every few seconds */
+    /* blink only while she looks straight at you, so the frame never jumps */
     if (!nextBlink) scheduleBlink(now);
-    if (blinkStart < 0 && now >= nextBlink) blinkStart = now;
-    var sy = 1;
-    if (blinkStart >= 0) {
-      var p = (now - blinkStart) / 160;
-      if (p >= 1) { blinkStart = -1; scheduleBlink(now); } else sy = 1 - 0.92 * Math.sin(Math.PI * p);
+    var bl = looks.blink;
+    if (bl) {
+      if (!blinkUntil && now >= nextBlink && cur === 'c' && !swapAt) {
+        bl.style.zIndex = String(z + 1); bl.style.opacity = '1'; blinkUntil = now + 120;
+      } else if (blinkUntil && (now >= blinkUntil || cur !== 'c')) {
+        bl.style.opacity = '0'; blinkUntil = 0; scheduleBlink(now);
+      } else if (!blinkUntil && now >= nextBlink) scheduleBlink(now);
     }
-    for (var e = 0; e < eyes.length; e++) {
-      var ex = eyes[e].getAttribute('data-cx'), ey = eyes[e].getAttribute('data-cy');
-      if (sy === 1) eyes[e].removeAttribute('transform');
-      else eyes[e].setAttribute('transform', 'translate(' + ex + ' ' + ey + ') scale(1 ' + n(sy) + ') translate(' + (-ex) + ' ' + (-ey) + ')');
-    }
+
+    /* write phase: transform only */
+    tilt.x = lerp(tilt.x, tiltT.x, 0.08); tilt.y = lerp(tilt.y, tiltT.y, 0.08);
+    card.style.transform = 'translate3d(' + n(tilt.x * 6) + 'px,' + n(tilt.y * 5) + 'px,0) rotateY(' + n(tilt.x * 4) + 'deg) rotateX(' + n(-tilt.y * 4) + 'deg)';
     raf = window.requestAnimationFrame(frame);
   }
   function start() { if (!raf && visible && !reduce.matches) raf = window.requestAnimationFrame(frame); }
@@ -139,15 +154,16 @@
   window.addEventListener('pointerdown', function (ev) {
     pointer = { x: ev.clientX, y: ev.clientY }; lastInput = performance.now();
   }, { passive: true });
-  window.addEventListener('mouseout', function (ev) { if (!ev.relatedTarget) { pointer = null; target.x = 0; target.y = 0; } });
+  document.addEventListener('mouseout', function (ev) { if (!ev.relatedTarget) pointer = null; });
 
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
       visible = entries[0].isIntersecting; if (visible) start(); else stop();
-    }).observe(svg);
+    }).observe(card);
   }
   document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else start(); });
-  var onReduce = function () { if (reduce.matches) { stop(); reset(); } else start(); };
+  var onReduce = function () { if (reduce.matches) { stop(); resetStatic(); } else start(); };
   if (reduce.addEventListener) reduce.addEventListener('change', onReduce); else if (reduce.addListener) reduce.addListener(onReduce);
+  if (reduce.matches) resetStatic();
   start();
 })();

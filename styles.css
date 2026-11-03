@@ -94,9 +94,14 @@ html[lang="th"] .hero h1 { font-size: clamp(36px, 5.2vw, 68px); line-height: 1.2
 .hero-sub { font-size: 19px; color: #E7DBFF; max-width: 34em; margin: 22px 0 10px; }
 .hero-name { font-family: var(--display); font-weight: 500; color: #fff; opacity: .9; margin: 0 0 28px; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero-woman { margin: 0; width: 100%; max-width: 500px; justify-self: center; pointer-events: none; -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 99%); mask-image: linear-gradient(to bottom, #000 80%, transparent 99%); }
-.woman { display: block; width: 100%; height: auto; overflow: visible; }
-.woman, .woman * { pointer-events: none; }
+.hero-woman { margin: 0; width: 100%; max-width: 460px; justify-self: center; pointer-events: none; perspective: 900px; }
+.look-card { position: relative; width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; background: #3E0D64; isolation: isolate;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, .22), 0 0 0 12px rgba(255, 255, 255, .06), 0 30px 60px -24px rgba(10, 2, 24, .85);
+  transform: translate3d(0, 0, 0); will-change: transform; }
+.look { position: absolute; inset: 0; display: block; opacity: 0; transition: opacity .14s linear; }
+.look img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.look.is-on { opacity: 1; }
+.look[data-look="blink"] { transition: none; }
 .stats { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .stats li { background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .16); border-radius: var(--radius); padding: 20px 22px; }
 .stats b { display: block; font-family: var(--display); font-size: 52px; line-height: 1; font-weight: 800; color: #FFC58A; }
@@ -175,7 +180,7 @@ html[lang="th"] .hero h1 { font-size: clamp(36px, 5.2vw, 68px); line-height: 1.2
 
 @media (max-width: 960px) {
   .hero-grid, .stage { grid-template-columns: 1fr; }
-  .hero-woman { order: -1; max-width: 340px; margin-bottom: -12px; }
+  .hero-woman { order: -1; max-width: 320px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .circle-grid, .proof-grid, .cards { grid-template-columns: 1fr 1fr; }
   .nav-links { display: none; }
@@ -192,7 +197,7 @@ html[lang="th"] .hero h1 { font-size: clamp(36px, 5.2vw, 68px); line-height: 1.2
   .method h3 { font-size: 23px; }
   .card { min-height: 0; }
   .btn-small { display: none; }
-  .hero-woman { max-width: 260px; }
+  .hero-woman { max-width: 240px; }
   .nav-row { gap: 10px; }
   .brand { font-size: 16px; }
   .timeline::before { left: 61px; }
@@ -201,4 +206,4 @@ html[lang="th"] .hero h1 { font-size: clamp(36px, 5.2vw, 68px); line-height: 1.2
   .yr { font-size: 16px; }
   .pull { padding: 22px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn, .look { transition: none; } .look-card { transform: none !important; } }
