@@ -57,7 +57,8 @@
      gives an exact weighted average of the four images. The card itself gets a small lerped translate and tilt.
      Only opacity and transform change per frame. */
   var card = document.querySelector('.look-card');
-  if (!card || !window.requestAnimationFrame) return;
+  var stack = card && card.querySelector('.look-stack');
+  if (!card || !stack || !window.requestAnimationFrame) return;
   var COLS = 5, ROWS = 5, CENTRE = { x: 2, y: 2 };
   var poses = [], exprs = {}, blink = null, all = card.querySelectorAll('.look');
   for (var k = 0; k < all.length; k++) {
@@ -88,10 +89,23 @@
   function n(v) { return Math.round(v * 1000) / 1000; }
   function setOp(el, v) { if (el.style.opacity !== v) el.style.opacity = v; }
 
+  /* Cross-dissolve only inside a narrow band around each boundary between two poses (the middle 30 % of the
+     distance), with a cubic in-out ease so the 50/50 state lasts a few frames at most; outside the band the nearest
+     pose is fully opaque and stays crisp. The spring supplies the smooth timing. Returns the pose position actually
+     shown, so the stack can slide by the remainder (see frame()). */
+  var BAND = 0.3, SLIDE = 14; /* px of slide per pose step; the remainder never exceeds +-(0.5 - BAND/2) so about +-5 px */
+  function edge(f) {
+    var t = clamp((f - 0.5 + BAND / 2) / BAND, 0, 1);
+    return t < 0.5 ? 4 * t * t * t : 1 - 4 * (1 - t) * (1 - t) * (1 - t);
+  }
+  function snap(v) { /* the target never rests inside the dissolve band: a pointer parked there would show a standing ghost */
+    var f = v - Math.floor(v), lo = 0.5 - BAND / 2, hi = 0.5 + BAND / 2;
+    if (f > lo && f < hi) v = Math.floor(v) + (f < 0.5 ? lo : hi);
+    return v;
+  }
   function blend(x, y) {
     var x0 = clamp(Math.floor(x), 0, COLS - 2), y0 = clamp(Math.floor(y), 0, ROWS - 2);
-    var fx = clamp(x - x0, 0, 1), fy = clamp(y - y0, 0, 1);
-    fx = fx * fx * (3 - 2 * fx); fy = fy * fy * (3 - 2 * fy); /* smoothstep: linger near a pose, cross between poses quickly, still continuous */
+    var fx = edge(clamp(x - x0, 0, 1)), fy = edge(clamp(y - y0, 0, 1));
     var w = {};
     w[y0 * COLS + x0] = (1 - fx) * (1 - fy);
     w[y0 * COLS + x0 + 1] = fx * (1 - fy);
@@ -104,13 +118,14 @@
       acc += wi;
       setOp(poses[i], acc > 0 ? String(n(wi / acc)) : '0');
     }
+    return { x: x0 + fx, y: y0 + fy };
   }
   function resetStatic() {
     for (var i = 0; i < poses.length; i++) poses[i].style.opacity = i === CENTRE.y * COLS + CENTRE.x ? '1' : '0';
     for (var e in exprs) exprs[e].style.opacity = '0';
     if (blink) blink.style.opacity = '0';
     head.x = headT.x = CENTRE.x; head.y = headT.y = CENTRE.y; blinkUntil = 0;
-    tilt.x = tilt.y = 0; card.style.transform = '';
+    tilt.x = tilt.y = 0; card.style.transform = ''; stack.style.transform = '';
   }
   function scheduleBlink(now) { nextBlink = now + 2600 + Math.random() * 3800; }
 
@@ -143,8 +158,8 @@
     else {
       var dx = px - fx, dy = py - fy;
       var RX = Math.max(260, r.width * 1.1), RY = Math.max(220, r.height * 0.9); /* full turn about one card away */
-      headT.x = CENTRE.x + clamp(dx / RX, -1, 1) * (COLS - 1) / 2;
-      headT.y = CENTRE.y + clamp(dy / RY, -1, 1) * (ROWS - 1) / 2;
+      headT.x = snap(CENTRE.x + clamp(dx / RX, -1, 1) * (COLS - 1) / 2);
+      headT.y = snap(CENTRE.y + clamp(dy / RY, -1, 1) * (ROWS - 1) / 2);
       tiltT.x = clamp(dx / (window.innerWidth * 0.45), -1, 1); tiltT.y = clamp(dy / (window.innerHeight * 0.45), -1, 1);
     }
     /* spring: ease towards the target so the head lags the pointer a little */
@@ -167,7 +182,10 @@
     }
 
     /* write phase: opacity of the four nearest poses, transform of the card */
-    blend(head.x, head.y);
+    var shownPose = blend(head.x, head.y);
+    /* parallax: slide the whole stack by the part of the turn the held frame does not show (a few px), so the
+       motion reads continuously while a pose is held and runs back as the next pose dissolves in */
+    stack.style.transform = 'translate3d(' + n((head.x - shownPose.x) * SLIDE) + 'px,' + n((head.y - shownPose.y) * SLIDE) + 'px,0)';
     tilt.x = lerp(tilt.x, tiltT.x, 0.08); tilt.y = lerp(tilt.y, tiltT.y, 0.08);
     card.style.transform = 'translate3d(' + n(tilt.x * 6) + 'px,' + n(tilt.y * 5) + 'px,0) rotateY(' + n(tilt.x * 4) + 'deg) rotateX(' + n(-tilt.y * 4) + 'deg)';
     raf = window.requestAnimationFrame(frame);
