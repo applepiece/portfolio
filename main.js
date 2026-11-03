@@ -167,3 +167,103 @@
   if (reduce.matches) resetStatic();
   start();
 })();
+
+/* Decorative props: one loop for pointer depth and a small, eased scroll offset. */
+(function () {
+  'use strict';
+  var nodes = document.querySelectorAll('[data-prop]');
+  if (!nodes.length || !window.requestAnimationFrame) return;
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var hover = window.matchMedia('(hover: hover)');
+  var items = [];
+  var target = { x: 0, y: 0 };
+  var current = { x: 0, y: 0 };
+  var scrollY = window.scrollY || 0;
+  var raf = 0;
+
+  for (var i = 0; i < nodes.length; i++) {
+    items.push({
+      el: nodes[i],
+      depth: Math.min(18, Math.max(0, Number(nodes[i].getAttribute('data-depth')) || 0)),
+      scroll: Number(nodes[i].getAttribute('data-scroll')) || 0,
+      anchor: 0,
+      offset: 0,
+      active: true
+    });
+  }
+
+  function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
+  function round(value) { return Math.round(value * 100) / 100; }
+
+  /* Read layout only when the page dimensions or language change. */
+  function measure() {
+    scrollY = window.scrollY || 0;
+    for (var j = 0; j < items.length; j++) {
+      var item = items[j];
+      item.anchor = item.el.parentElement.getBoundingClientRect().top + scrollY;
+      item.active = window.getComputedStyle(item.el).display !== 'none';
+    }
+  }
+
+  function frame() {
+    raf = 0;
+    if (reduce.matches || document.hidden) return;
+    current.x += (target.x - current.x) * 0.06;
+    current.y += (target.y - current.y) * 0.06;
+    for (var j = 0; j < items.length; j++) {
+      var item = items[j];
+      if (!item.active) continue;
+      var offset = clamp((scrollY - item.anchor) * item.scroll, -18, 18);
+      item.offset += (offset - item.offset) * 0.055;
+      item.el.style.transform = 'translate3d(' + round(current.x * item.depth) + 'px,' + round(current.y * item.depth + item.offset) + 'px,0)';
+    }
+    raf = window.requestAnimationFrame(frame);
+  }
+
+  function start() {
+    if (!raf && !reduce.matches && !document.hidden) raf = window.requestAnimationFrame(frame);
+  }
+  function stop() {
+    if (raf) window.cancelAnimationFrame(raf);
+    raf = 0;
+  }
+  function reset() {
+    target.x = target.y = current.x = current.y = 0;
+    for (var j = 0; j < items.length; j++) {
+      items[j].offset = 0;
+      items[j].el.style.transform = '';
+    }
+  }
+
+  window.addEventListener('pointermove', function (ev) {
+    if (!hover.matches || ev.pointerType === 'touch' || reduce.matches) return;
+    target.x = clamp(ev.clientX / Math.max(1, window.innerWidth) * 2 - 1, -1, 1);
+    target.y = clamp(ev.clientY / Math.max(1, window.innerHeight) * 2 - 1, -1, 1);
+  }, { passive: true });
+  document.addEventListener('mouseout', function (ev) {
+    if (!ev.relatedTarget) target.x = target.y = 0;
+  });
+  window.addEventListener('scroll', function () { scrollY = window.scrollY || 0; }, { passive: true });
+  window.addEventListener('resize', measure, { passive: true });
+  window.addEventListener('load', measure);
+  document.addEventListener('click', function (ev) {
+    if (ev.target.closest && ev.target.closest('[data-set-lang]')) measure();
+  });
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) stop();
+    else { measure(); start(); }
+  });
+
+  function onReduce() {
+    if (reduce.matches) { stop(); reset(); }
+    else { measure(); start(); }
+  }
+  if (reduce.addEventListener) reduce.addEventListener('change', onReduce);
+  else if (reduce.addListener) reduce.addListener(onReduce);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+
+  measure();
+  if (reduce.matches) reset();
+  start();
+})();
